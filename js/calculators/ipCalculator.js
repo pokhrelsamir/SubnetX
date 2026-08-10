@@ -641,3 +641,21 @@ cidrInput.addEventListener(
 
     }
 );
+
+const quickExample =
+    document.getElementById("quickExample");
+
+quickExample.addEventListener(
+    "click",
+    () => {
+
+        ipInput.value =
+            "192.168.1.25";
+
+        cidrInput.value =
+            "24";
+
+        clearError();
+
+    }
+);
