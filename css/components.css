@@ -1342,3 +1342,77 @@
         center;
 
 }
+
+
+/* ==========================================
+   Binary Calculator
+========================================== */
+
+.binary-section {
+    margin-top: 24px;
+}
+
+.binary-octets {
+    display: grid;
+    grid-template-columns:
+        repeat(4, 1fr);
+    gap: 12px;
+}
+
+.binary-octet {
+    padding: 18px;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    background: var(--card-bg);
+}
+
+.binary-octet span {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    opacity: 0.65;
+}
+
+.binary-octet strong {
+    display: block;
+    font-family: monospace;
+    font-size: 1.1rem;
+    letter-spacing: 0.08em;
+}
+
+.binary-result {
+    font-family: monospace;
+    font-size: 1rem !important;
+    word-break: break-all;
+}
+
+.binary-32bit {
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    background: var(--card-bg);
+    overflow-x: auto;
+}
+
+.binary-32bit code {
+    font-family: monospace;
+    font-size: 1rem;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+}
+
+.binary-info {
+    margin-top: 24px;
+    padding: 18px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    background: var(--card-bg);
+}
+
+.binary-info p {
+    margin: 8px 0 0;
+    line-height: 1.6;
+    opacity: 0.75;
+}

@@ -1,34 +1,21 @@
 /* ==========================================
    NetCalc — Binary Calculator
-   ========================================== */
+========================================== */
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function () {
 
-    const ipInput =
-        document.getElementById("binaryIPInput");
+    const ipInput = document.getElementById("binaryIPInput");
+    const convertButton = document.getElementById("convertBinary");
+    const clearButton = document.getElementById("clearBinary");
+    const exampleButton = document.getElementById("binaryExample");
 
-    const convertButton =
-        document.getElementById("convertBinary");
-
-    const clearButton =
-        document.getElementById("clearBinary");
-
-    const exampleButton =
-        document.getElementById("binaryExample");
-
-    const errorBox =
-        document.getElementById("binaryError");
-
+    const errorBox = document.getElementById("binaryError");
 
     const decimalResult =
         document.getElementById("binaryDecimalResult");
 
     const fullBinaryResult =
         document.getElementById("binaryFullResult");
-
-    const binary32Result =
-        document.getElementById("binary32Result");
-
 
     const octet1 =
         document.getElementById("binaryOctet1");
@@ -42,34 +29,53 @@ document.addEventListener("DOMContentLoaded", () => {
     const octet4 =
         document.getElementById("binaryOctet4");
 
+    const binary32Result =
+        document.getElementById("binary32Result");
+
+
+    /* ==========================================
+       Check Required Elements
+    ========================================== */
+
+    if (
+        !ipInput ||
+        !convertButton ||
+        !clearButton
+    ) {
+
+        console.error(
+            "NetCalc: Binary Calculator elements not found."
+        );
+
+        return;
+    }
+
 
     /* ==========================================
        Validate IPv4
-       ========================================== */
+    ========================================== */
 
     function isValidIPv4(ip) {
 
-        const parts =
-            ip.trim().split(".");
+        const parts = ip.trim().split(".");
 
         if (parts.length !== 4) {
             return false;
         }
 
-        return parts.every(part => {
+        return parts.every(function (part) {
 
             if (part === "") {
                 return false;
             }
 
-            const value =
-                Number(part);
+            if (!/^\d+$/.test(part)) {
+                return false;
+            }
 
-            return (
-                Number.isInteger(value) &&
-                value >= 0 &&
-                value <= 255
-            );
+            const value = Number(part);
+
+            return value >= 0 && value <= 255;
 
         });
 
@@ -77,12 +83,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* ==========================================
-       Convert Octet → Binary
-       ========================================== */
+       IPv4 Octet → 8-bit Binary
+    ========================================== */
 
-    function octetToBinary(octet) {
+    function convertOctetToBinary(value) {
 
-        return Number(octet)
+        return Number(value)
             .toString(2)
             .padStart(8, "0");
 
@@ -91,12 +97,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* ==========================================
        Show Error
-       ========================================== */
+    ========================================== */
 
     function showError(message) {
 
-        errorBox.textContent =
-            message;
+        if (!errorBox) {
+            return;
+        }
+
+        errorBox.textContent = message;
 
         errorBox.classList.add("show");
 
@@ -105,9 +114,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* ==========================================
        Clear Error
-       ========================================== */
+    ========================================== */
 
     function clearError() {
+
+        if (!errorBox) {
+            return;
+        }
 
         errorBox.textContent = "";
 
@@ -118,34 +131,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* ==========================================
        Clear Results
-       ========================================== */
+    ========================================== */
 
     function clearResults() {
 
         decimalResult.textContent = "—";
-
         fullBinaryResult.textContent = "—";
-
-        binary32Result.textContent = "—";
 
         octet1.textContent = "—";
         octet2.textContent = "—";
         octet3.textContent = "—";
         octet4.textContent = "—";
 
+        binary32Result.textContent = "—";
+
     }
 
 
     /* ==========================================
-       Convert IPv4
-       ========================================== */
+       Main Conversion
+    ========================================== */
 
-    function convertIPv4() {
+    function convertToBinary() {
 
         clearError();
 
-        const ip =
-            ipInput.value.trim();
+        const ip = ipInput.value.trim();
 
 
         /* Validate */
@@ -161,108 +172,109 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
 
-        /* Split IP */
+        /* Split IPv4 */
 
         const octets =
             ip.split(".").map(Number);
 
 
-        /* Convert each octet */
+        /* Convert */
 
-        const binaries =
-            octets.map(octetToBinary);
+        const binaryOctets =
+            octets.map(convertOctetToBinary);
 
 
-        /* Full binary */
+        /* Full binary with dots */
 
         const fullBinary =
-            binaries.join(".");
+            binaryOctets.join(".");
 
 
-        const continuousBinary =
-            binaries.join("");
+        /* Full 32-bit binary */
+
+        const binary32 =
+            binaryOctets.join("");
 
 
         /* ==========================================
-           Display Results
-           ========================================== */
+           Display
+        ========================================== */
 
-        decimalResult.textContent =
-            ip;
+        decimalResult.textContent = ip;
 
         fullBinaryResult.textContent =
             fullBinary;
 
-
         octet1.textContent =
-            binaries[0];
+            binaryOctets[0];
 
         octet2.textContent =
-            binaries[1];
+            binaryOctets[1];
 
         octet3.textContent =
-            binaries[2];
+            binaryOctets[2];
 
         octet4.textContent =
-            binaries[3];
-
+            binaryOctets[3];
 
         binary32Result.textContent =
-            continuousBinary;
+            binary32;
+
+
+        console.log(
+            "NetCalc Binary:",
+            ip,
+            "→",
+            fullBinary
+        );
 
     }
 
 
     /* ==========================================
        Convert Button
-       ========================================== */
+    ========================================== */
 
-    if (convertButton) {
-
-        convertButton.addEventListener(
-            "click",
-            convertIPv4
-        );
-
-    }
+    convertButton.addEventListener(
+        "click",
+        convertToBinary
+    );
 
 
     /* ==========================================
        Clear Button
-       ========================================== */
+    ========================================== */
 
-    if (clearButton) {
+    clearButton.addEventListener(
+        "click",
+        function () {
 
-        clearButton.addEventListener(
-            "click",
-            () => {
+            ipInput.value = "";
 
-                ipInput.value = "";
+            clearError();
 
-                clearError();
+            clearResults();
 
-                clearResults();
+            ipInput.focus();
 
-            }
-        );
-
-    }
+        }
+    );
 
 
     /* ==========================================
        Quick Example
-       ========================================== */
+    ========================================== */
 
     if (exampleButton) {
 
         exampleButton.addEventListener(
             "click",
-            () => {
+            function () {
 
                 ipInput.value =
                     "192.168.1.25";
 
-                convertIPv4();
+                convertToBinary();
 
             }
         );
@@ -272,23 +284,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* ==========================================
        Enter Key
-       ========================================== */
+    ========================================== */
 
-    if (ipInput) {
+    ipInput.addEventListener(
+        "keydown",
+        function (event) {
 
-        ipInput.addEventListener(
-            "keydown",
-            event => {
+            if (event.key === "Enter") {
 
-                if (event.key === "Enter") {
-
-                    convertIPv4();
-
-                }
+                convertToBinary();
 
             }
-        );
 
-    }
+        }
+    );
+
 
 });

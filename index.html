@@ -802,6 +802,7 @@
                         <input
                             type="text"
                             id="ipInput"
+                            value="192.168.1.25"
                             placeholder="192.168.1.25"
                             autocomplete="off"
                         >
@@ -1527,47 +1528,332 @@
              Binary
         =================================== -->
 
-        <section
-            class="page"
-            id="binary-calculator"
-        >
+    <section
+        class="page"
+        id="binary-calculator"
+    >
 
-            <div class="page-heading">
+    <div class="page-heading">
 
-                <span class="eyebrow">
-                    TOOL
-                </span>
+        <span class="eyebrow">
+            CALCULATOR
+        </span>
 
-                <h3>
-                    Binary Converter
-                </h3>
+        <h3>
+            Binary Converter
+        </h3>
 
-                <p>
-                    Convert IPv4 addresses between
-                    decimal and binary.
-                </p>
+        <p>
+            Convert IPv4 addresses between
+            decimal and binary notation.
+        </p>
 
-            </div>
+    </div>
 
 
-            <div class="placeholder-card">
+    <!-- Converter Layout -->
 
-                <div class="placeholder-icon">
-                    🔢
+    <div class="calculator-layout">
+
+
+        <!-- Input Card -->
+
+        <div class="calculator-card">
+
+            <div class="card-heading">
+
+                <div>
+
+                    <span class="card-label">
+                        INPUT
+                    </span>
+
+                    <h4>
+                        IPv4 Address
+                    </h4>
+
                 </div>
 
-                <h3>
-                    Coming Soon
-                </h3>
+                <span class="protocol-badge">
+                    IPv4
+                </span>
+
+            </div>
+
+
+            <!-- IPv4 Input -->
+
+            <div class="input-group">
+
+                <label for="binaryIPInput">
+                    IPv4 Address
+                </label>
+
+                <input
+                    type="text"
+                    id="binaryIPInput"
+                    placeholder="192.168.1.25"
+                    autocomplete="off"
+                >
+
+                <small>
+                    Enter a valid IPv4 address.
+                </small>
+
+            </div>
+
+
+            <!-- Error -->
+
+            <div
+                class="input-error"
+                id="binaryError"
+            ></div>
+
+
+            <!-- Actions -->
+
+            <div class="calculator-actions">
+
+                <button
+                    class="primary-button"
+                    id="convertBinary"
+                >
+                    Convert to Binary
+                    <span>→</span>
+                </button>
+
+                <button
+                    class="secondary-button"
+                    id="clearBinary"
+                >
+                    Clear
+                </button>
+
+            </div>
+
+
+            <!-- Quick Example -->
+
+            <div class="example-box">
+
+                <span>
+                    QUICK EXAMPLE
+                </span>
+
+                <button
+                    type="button"
+                    id="binaryExample"
+                >
+                    192.168.1.25
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Results -->
+
+        <div
+            class="results-card"
+            id="binaryResults"
+        >
+
+            <div class="card-heading">
+
+                <div>
+
+                    <span class="card-label">
+                        RESULTS
+                    </span>
+
+                    <h4>
+                        Binary Information
+                    </h4>
+
+                </div>
+
+                <div class="result-badge">
+                    Converted
+                </div>
+
+            </div>
+
+
+            <!-- Main Binary Result -->
+
+            <div class="result-highlight">
+
+                <div>
+
+                    <span>
+                        DECIMAL
+                    </span>
+
+                    <strong id="binaryDecimalResult">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="result-divider"></div>
+
+
+                <div>
+
+                    <span>
+                        BINARY
+                    </span>
+
+                    <strong
+                        id="binaryFullResult"
+                        class="binary-result"
+                    >
+                        —
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- Octet Breakdown -->
+
+            <div class="binary-section">
+
+                <div class="card-heading">
+
+                    <div>
+
+                        <span class="card-label">
+                            OCTET BREAKDOWN
+                        </span>
+
+                        <h4>
+                            8-Bit Conversion
+                        </h4>
+
+                    </div>
+
+                </div>
+
+
+                <div class="binary-octets">
+
+
+                    <div class="binary-octet">
+
+                        <span>
+                            OCTET 1
+                        </span>
+
+                        <strong id="binaryOctet1">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="binary-octet">
+
+                        <span>
+                            OCTET 2
+                        </span>
+
+                        <strong id="binaryOctet2">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="binary-octet">
+
+                        <span>
+                            OCTET 3
+                        </span>
+
+                        <strong id="binaryOctet3">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="binary-octet">
+
+                        <span>
+                            OCTET 4
+                        </span>
+
+                        <strong id="binaryOctet4">
+                            —
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- 32-bit Result -->
+
+            <div class="binary-section">
+
+                <div class="card-heading">
+
+                    <div>
+
+                        <span class="card-label">
+                            32-BIT REPRESENTATION
+                        </span>
+
+                        <h4>
+                            Complete Binary Address
+                        </h4>
+
+                    </div>
+
+                </div>
+
+
+                <div class="binary-32bit">
+
+                    <code id="binary32Result">
+                        —
+                    </code>
+
+                </div>
+
+            </div>
+
+
+            <!-- Conversion Explanation -->
+
+            <div class="binary-info">
+
+                <span class="card-label">
+                    HOW IT WORKS
+                </span>
 
                 <p>
-                    Binary conversion will be
-                    implemented next.
+                    Each IPv4 address contains four
+                    decimal octets. Every octet is
+                    converted into an 8-bit binary
+                    value, producing a total of
+                    32 bits.
                 </p>
 
             </div>
 
-        </section>
+        </div>
+
+    </div>
+
+</section>
 
 
         <!-- ==================================
@@ -1765,10 +2051,9 @@
 ======================================= -->
 
 <script src="js/script.js"></script>
-
 <script src="js/calculators/ipCalculator.js"></script>
-
 <script src="js/calculators/subnetCalculator.js"></script>
+<script src="js/calculators/binaryCalculator.js"></script>
 
 </body>
 
