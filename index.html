@@ -1104,45 +1104,423 @@
         =================================== -->
 
         <section
-            class="page"
-            id="subnet-calculator"
-        >
+    class="page"
+    id="subnet-calculator"
+>
 
-            <div class="page-heading">
+    <div class="page-heading">
 
-                <span class="eyebrow">
-                    CALCULATOR
-                </span>
+        <span class="eyebrow">
+            CALCULATOR
+        </span>
 
-                <h3>
-                    Subnet Calculator
-                </h3>
+        <h3>
+            Subnet Calculator
+        </h3>
 
-                <p>
-                    Divide and analyze IPv4 networks.
-                </p>
+        <p>
+            Divide an IPv4 network into smaller
+            subnets and analyze every address range.
+        </p>
 
-            </div>
+    </div>
 
 
-            <div class="placeholder-card">
+    <!-- Calculator Layout -->
 
-                <div class="placeholder-icon">
-                    🧮
+    <div class="calculator-layout subnet-layout">
+
+
+        <!-- Input Card -->
+
+        <div class="calculator-card">
+
+            <div class="card-heading">
+
+                <div>
+
+                    <span class="card-label">
+                        INPUT
+                    </span>
+
+                    <h4>
+                        Subnet Details
+                    </h4>
+
                 </div>
 
-                <h3>
-                    Coming Soon
-                </h3>
-
-                <p>
-                    The subnet calculator will be
-                    added after the IP calculator.
-                </p>
+                <span class="protocol-badge">
+                    IPv4
+                </span>
 
             </div>
 
-        </section>
+
+            <!-- Network -->
+
+            <div class="input-group">
+
+                <label for="subnetIP">
+                    Network / IP Address
+                </label>
+
+                <input
+                    type="text"
+                    id="subnetIP"
+                    placeholder="192.168.1.0"
+                    autocomplete="off"
+                >
+
+                <small>
+                    Example: 192.168.1.0
+                </small>
+
+            </div>
+
+
+            <!-- Original CIDR -->
+
+            <div class="input-group">
+
+                <label for="originalCIDR">
+                    Original CIDR
+                </label>
+
+                <div class="cidr-input">
+
+                    <span>/</span>
+
+                    <input
+                        type="number"
+                        id="originalCIDR"
+                        value="24"
+                        min="0"
+                        max="32"
+                    >
+
+                </div>
+
+                <small>
+                    Network prefix: /0 – /32
+                </small>
+
+            </div>
+
+
+            <!-- New CIDR -->
+
+            <div class="input-group">
+
+                <label for="newCIDR">
+                    New Subnet CIDR
+                </label>
+
+                <div class="cidr-input">
+
+                    <span>/</span>
+
+                    <input
+                        type="number"
+                        id="newCIDR"
+                        value="26"
+                        min="0"
+                        max="32"
+                    >
+
+                </div>
+
+                <small>
+                    Must be greater than or equal to original CIDR.
+                </small>
+
+            </div>
+
+
+            <!-- Error -->
+
+            <div
+                class="input-error"
+                id="subnetError"
+            ></div>
+
+
+            <!-- Actions -->
+
+            <div class="calculator-actions">
+
+                <button
+                    class="primary-button"
+                    id="calculateSubnet"
+                >
+                    Generate Subnets
+                    <span>→</span>
+                </button>
+
+                <button
+                    class="secondary-button"
+                    id="clearSubnet"
+                >
+                    Clear
+                </button>
+
+            </div>
+
+
+            <!-- Example -->
+
+            <div class="example-box">
+
+                <span>
+                    QUICK EXAMPLE
+                </span>
+
+                <button
+                    type="button"
+                    id="subnetExample"
+                >
+                    192.168.1.0/24 → /26
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Summary -->
+
+        <div class="results-card">
+
+            <div class="card-heading">
+
+                <div>
+
+                    <span class="card-label">
+                        SUMMARY
+                    </span>
+
+                    <h4>
+                        Subnet Information
+                    </h4>
+
+                </div>
+
+                <div class="result-badge">
+                    Ready
+                </div>
+
+            </div>
+
+
+            <div class="subnet-summary-grid">
+
+
+                <div class="result-item">
+
+                    <span>
+                        Original Network
+                    </span>
+
+                    <strong id="summaryNetwork">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="result-item">
+
+                    <span>
+                        Original CIDR
+                    </span>
+
+                    <strong id="summaryOriginalCIDR">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="result-item">
+
+                    <span>
+                        New CIDR
+                    </span>
+
+                    <strong id="summaryNewCIDR">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="result-item">
+
+                    <span>
+                        Subnet Mask
+                    </span>
+
+                    <strong id="summaryMask">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="result-item">
+
+                    <span>
+                        Number of Subnets
+                    </span>
+
+                    <strong id="summarySubnetCount">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="result-item">
+
+                    <span>
+                        Addresses / Subnet
+                    </span>
+
+                    <strong id="summaryAddresses">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="result-item">
+
+                    <span>
+                        Usable Hosts / Subnet
+                    </span>
+
+                    <strong id="summaryHosts">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="result-item">
+
+                    <span>
+                        Bits Borrowed
+                    </span>
+
+                    <strong id="summaryBorrowed">
+                        —
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Subnet Table -->
+
+    <div
+        class="subnet-table-card"
+        id="subnetTableCard"
+    >
+
+        <div class="card-heading">
+
+            <div>
+
+                <span class="card-label">
+                    SUBNET TABLE
+                </span>
+
+                <h4>
+                    Generated Subnets
+                </h4>
+
+            </div>
+
+            <span
+                class="subnet-count"
+                id="subnetCount"
+            >
+                0 Subnets
+            </span>
+
+        </div>
+
+
+        <div class="table-wrapper">
+
+            <table class="subnet-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            #
+                        </th>
+
+                        <th>
+                            Network
+                        </th>
+
+                        <th>
+                            CIDR
+                        </th>
+
+                        <th>
+                            First Host
+                        </th>
+
+                        <th>
+                            Last Host
+                        </th>
+
+                        <th>
+                            Broadcast
+                        </th>
+
+                        <th>
+                            Addresses
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody
+                    id="subnetTableBody"
+                >
+
+                    <tr>
+
+                        <td
+                            colspan="7"
+                            class="empty-table"
+                        >
+                            Enter network details
+                            and generate subnets.
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</section>
 
 
         <!-- ==================================
@@ -1390,6 +1768,7 @@
 
 <script src="js/calculators/ipCalculator.js"></script>
 
+<script src="js/calculators/subnetCalculator.js"></script>
 
 </body>
 
