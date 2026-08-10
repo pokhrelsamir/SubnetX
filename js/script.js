@@ -212,3 +212,120 @@ document.addEventListener(
 ========================================= */
 
 showPage("dashboard");
+
+
+/* ==========================================
+   Theme Toggle
+========================================== */
+
+const themeButton = document.getElementById("themeButton");
+
+
+// Apply saved theme when page loads
+
+const savedTheme = localStorage.getItem("netcalc-theme");
+
+if (savedTheme === "light") {
+
+    document.documentElement.setAttribute(
+        "data-theme",
+        "light"
+    );
+
+    updateThemeButton("light");
+
+} else {
+
+    document.documentElement.setAttribute(
+        "data-theme",
+        "dark"
+    );
+
+    updateThemeButton("dark");
+
+}
+
+
+/* Toggle Theme */
+
+if (themeButton) {
+
+    themeButton.addEventListener("click", function () {
+
+        const currentTheme =
+            document.documentElement.getAttribute("data-theme");
+
+        if (currentTheme === "light") {
+
+            document.documentElement.setAttribute(
+                "data-theme",
+                "dark"
+            );
+
+            localStorage.setItem(
+                "netcalc-theme",
+                "dark"
+            );
+
+            updateThemeButton("dark");
+
+        } else {
+
+            document.documentElement.setAttribute(
+                "data-theme",
+                "light"
+            );
+
+            localStorage.setItem(
+                "netcalc-theme",
+                "light"
+            );
+
+            updateThemeButton("light");
+
+        }
+
+    });
+
+}
+
+
+/* Update Button Icon */
+
+function updateThemeButton(theme) {
+
+    if (!themeButton) {
+        return;
+    }
+
+    if (theme === "light") {
+
+        themeButton.textContent = "☀️";
+
+        themeButton.setAttribute(
+            "title",
+            "Switch to dark mode"
+        );
+
+        themeButton.setAttribute(
+            "aria-label",
+            "Switch to dark mode"
+        );
+
+    } else {
+
+        themeButton.textContent = "🌙";
+
+        themeButton.setAttribute(
+            "title",
+            "Switch to light mode"
+        );
+
+        themeButton.setAttribute(
+            "aria-label",
+            "Switch to light mode"
+        );
+
+    }
+
+}

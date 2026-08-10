@@ -29,6 +29,26 @@
     --transition: 0.2s ease;
 }
 
+/* ==========================================
+   Light Theme
+========================================== */
+
+[data-theme="light"] {
+
+    --surface: #ffffff;
+
+    --surface-light: #f8fafc;
+
+    --border: #e2e8f0;
+
+    --text: #0f172a;
+
+    --text-secondary: #475569;
+
+    --text-muted: #64748b;
+
+}
+
 
 /* =========================================
    Reset
@@ -701,4 +721,230 @@ select:focus-visible {
     color: var(--text-muted);
 
     font-size: 12px;
+}
+
+/* ==========================================
+   GLOBAL THEME APPLICATION
+========================================== */
+
+body,
+.sidebar,
+.main-content,
+.topbar,
+.stat-card,
+.tool-card,
+.calculator-card,
+.results-card,
+.subnet-table-card,
+.placeholder-card,
+.binary-octet,
+.binary-32bit,
+.binary-info,
+.port-table-card,
+.result-item,
+.example-box,
+.search-input-wrapper,
+.port-filter select,
+.table-wrapper,
+.subnet-table,
+.port-table {
+
+    transition:
+        background-color 0.25s ease,
+        border-color 0.25s ease,
+        color 0.25s ease;
+
+}
+
+
+/* Main surfaces */
+
+.sidebar,
+.topbar,
+.stat-card,
+.tool-card,
+.calculator-card,
+.results-card,
+.subnet-table-card,
+.placeholder-card,
+.port-table-card {
+
+    background:
+        var(--surface);
+
+    border-color:
+        var(--border);
+
+}
+
+
+/* Secondary surfaces */
+
+.result-item,
+.example-box,
+.binary-octet,
+.binary-32bit,
+.binary-info,
+.search-input-wrapper,
+.port-filter select {
+
+    background:
+        var(--surface-light);
+
+    border-color:
+        var(--border);
+
+}
+
+
+/* Inputs */
+
+.input-group input,
+.search-input-wrapper input {
+
+    background:
+        var(--surface);
+
+    color:
+        var(--text);
+
+}
+
+
+/* Table */
+
+.table-wrapper {
+
+    border-color:
+        var(--border);
+
+}
+
+.subnet-table th,
+.port-table th {
+
+    background:
+        var(--surface-light);
+
+    color:
+        var(--text-muted);
+
+}
+
+.subnet-table td,
+.port-table td {
+
+    border-color:
+        var(--border);
+
+    color:
+        var(--text-secondary);
+
+}
+
+
+/* Dropdown */
+
+.port-filter select {
+
+    background:
+        var(--surface);
+
+    color:
+        var(--text);
+
+}
+
+.port-filter select option {
+
+    background:
+        var(--surface);
+
+    color:
+        var(--text);
+
+}
+
+
+/* Buttons */
+
+.secondary-button {
+
+    background:
+        transparent;
+
+    color:
+        var(--text-secondary);
+
+    border-color:
+        var(--border);
+
+}
+
+.secondary-button:hover {
+
+    background:
+        var(--surface-light);
+
+    color:
+        var(--text);
+
+}
+
+
+/* Navigation */
+
+.nav-item {
+
+    color:
+        var(--text-secondary);
+
+}
+
+.nav-item:hover {
+
+    background:
+        rgba(
+            99,
+            102,
+            241,
+            0.08
+        );
+
+    color:
+        var(--text);
+
+}
+
+
+/* Footer */
+
+.sidebar-footer {
+
+    border-color:
+        var(--border);
+
+    color:
+        var(--text-muted);
+
+}
+
+
+/* Code / binary areas */
+
+.binary-32bit code {
+
+    color:
+        var(--text);
+
+}
+
+
+/* Port search */
+
+.search-input-wrapper input::placeholder {
+
+    color:
+        var(--text-muted);
+
 }
