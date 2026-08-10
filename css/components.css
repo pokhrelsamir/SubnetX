@@ -1416,3 +1416,595 @@
     line-height: 1.6;
     opacity: 0.75;
 }
+
+
+/* ==========================================
+   Port Reference
+========================================== */
+
+.port-controls {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 220px;
+
+    gap: 18px;
+
+    margin-bottom: 24px;
+
+}
+
+
+/* Labels */
+
+.port-controls label {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    color:
+        var(--text-secondary);
+
+    font-size: 9px;
+
+    font-weight: 750;
+
+    letter-spacing: 0.8px;
+
+    text-transform: uppercase;
+
+}
+
+
+/* Search */
+
+.search-input-wrapper {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    height: 48px;
+
+    padding:
+        0 14px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        10px;
+
+    background:
+        var(--surface);
+
+    transition:
+        border-color var(--transition),
+        box-shadow var(--transition),
+        background var(--transition);
+
+}
+
+
+.search-input-wrapper:hover {
+
+    border-color:
+        rgba(
+            99,
+            102,
+            241,
+            0.35
+        );
+
+}
+
+
+.search-input-wrapper:focus-within {
+
+    border-color:
+        var(--primary);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(
+            99,
+            102,
+            241,
+            0.08
+        );
+
+}
+
+
+.search-input-wrapper span {
+
+    flex-shrink: 0;
+
+    color:
+        var(--text-muted);
+
+    font-size: 15px;
+
+    opacity: 0.8;
+
+}
+
+
+.search-input-wrapper input {
+
+    width: 100%;
+
+    height: 100%;
+
+    border: none;
+
+    outline: none;
+
+    background:
+        transparent;
+
+    color:
+        var(--text);
+
+    font-size: 11px;
+
+}
+
+
+.search-input-wrapper input::placeholder {
+
+    color:
+        var(--text-muted);
+
+    opacity: 0.8;
+
+}
+
+
+/* Protocol Filter */
+
+.port-filter select {
+
+    width: 100%;
+
+    height: 48px;
+
+    padding:
+        0 14px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        10px;
+
+    outline: none;
+
+    background:
+        var(--surface);
+
+    color:
+        var(--text);
+
+    font-size: 11px;
+
+    cursor: pointer;
+
+    transition:
+        border-color var(--transition),
+        box-shadow var(--transition),
+        background var(--transition);
+
+}
+
+
+.port-filter select:hover {
+
+    border-color:
+        rgba(
+            99,
+            102,
+            241,
+            0.35
+        );
+
+}
+
+
+.port-filter select:focus {
+
+    border-color:
+        var(--primary);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(
+            99,
+            102,
+            241,
+            0.08
+        );
+
+}
+
+
+/* Dropdown Options */
+
+.port-filter select option {
+
+    background:
+        var(--surface);
+
+    color:
+        var(--text);
+
+}
+
+
+/* ==========================================
+   Port Table
+========================================== */
+
+.port-table-card {
+
+    padding: 23px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        var(--radius-large);
+
+    background:
+        var(--surface);
+
+    overflow: hidden;
+
+}
+
+
+.port-table {
+
+    width: 100%;
+
+    border-collapse:
+        collapse;
+
+}
+
+
+/* Table Header */
+
+.port-table th {
+
+    padding:
+        12px 13px;
+
+    border-bottom:
+        1px solid var(--border);
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.02
+        );
+
+    color:
+        var(--text-muted);
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.7px;
+
+    text-align: left;
+
+    text-transform: uppercase;
+
+    white-space: nowrap;
+
+}
+
+
+/* Table Cells */
+
+.port-table td {
+
+    padding:
+        13px;
+
+    border-bottom:
+        1px solid var(--border);
+
+    color:
+        var(--text-secondary);
+
+    font-size: 10px;
+
+    vertical-align: middle;
+
+}
+
+
+.port-table tbody tr {
+
+    transition:
+        background var(--transition);
+
+}
+
+
+.port-table tbody tr:hover {
+
+    background:
+        rgba(
+            99,
+            102,
+            241,
+            0.04
+        );
+
+}
+
+
+.port-table tbody tr:last-child td {
+
+    border-bottom:
+        none;
+
+}
+
+
+/* Port Number */
+
+.port-number {
+
+    color:
+        var(--primary-light);
+
+    font-family:
+        "SFMono-Regular",
+        Consolas,
+        monospace;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+}
+
+
+/* Service Name */
+
+.port-service {
+
+    color:
+        var(--text);
+
+    font-weight: 650;
+
+}
+
+
+/* Description */
+
+.port-description {
+
+    max-width: 500px;
+
+    color:
+        var(--text-secondary);
+
+    line-height: 1.5;
+
+    font-size: 10px;
+
+}
+
+
+/* Protocol Badge */
+
+.port-protocol {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-width: 42px;
+
+    padding:
+        4px 7px;
+
+    border-radius: 5px;
+
+    background:
+        rgba(
+            99,
+            102,
+            241,
+            0.1
+        );
+
+    color:
+        var(--primary-light);
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+}
+
+
+/* TCP */
+
+.port-protocol.tcp {
+
+    background:
+        rgba(
+            99,
+            102,
+            241,
+            0.1
+        );
+
+    color:
+        var(--primary-light);
+
+}
+
+
+/* UDP */
+
+.port-protocol.udp {
+
+    background:
+        rgba(
+            14,
+            165,
+            233,
+            0.1
+        );
+
+    color:
+        #38bdf8;
+
+}
+
+
+/* Copy Button */
+
+.copy-port {
+
+    width: 34px;
+
+    height: 34px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 8px;
+
+    background:
+        transparent;
+
+    color:
+        var(--text-secondary);
+
+    font-size: 12px;
+
+    cursor: pointer;
+
+    transition:
+        transform var(--transition),
+        background var(--transition),
+        border-color var(--transition),
+        color var(--transition);
+
+}
+
+
+.copy-port:hover {
+
+    transform:
+        translateY(-1px);
+
+    background:
+        rgba(
+            99,
+            102,
+            241,
+            0.08
+        );
+
+    border-color:
+        rgba(
+            99,
+            102,
+            241,
+            0.3
+        );
+
+    color:
+        var(--primary-light);
+
+}
+
+
+/* ==========================================
+   Port Table Wrapper
+========================================== */
+
+.port-table-wrapper {
+
+    width: 100%;
+
+    overflow-x: auto;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        10px;
+
+}
+
+
+/* ==========================================
+   Empty Port State
+========================================== */
+
+.port-empty {
+
+    padding:
+        40px 20px !important;
+
+    color:
+        var(--text-muted) !important;
+
+    text-align:
+        center;
+
+    font-size: 10px;
+
+}
+
+
+/* ==========================================
+   Light Theme Compatibility
+========================================== */
+
+[data-theme="light"] .search-input-wrapper input,
+[data-theme="light"] .port-filter select {
+
+    color:
+        var(--text);
+
+}
+
+
+[data-theme="light"] .port-filter select option {
+
+    background:
+        var(--surface);
+
+    color:
+        var(--text);
+
+}
