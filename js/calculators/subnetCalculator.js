@@ -1,5 +1,5 @@
 /* ==========================================
-   NetCalc — Subnet Calculator
+   SubnetX — Subnet Calculator
    ========================================== */
 
 document.addEventListener("DOMContentLoaded", () => {

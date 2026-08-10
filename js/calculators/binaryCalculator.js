@@ -1,5 +1,5 @@
 /* ==========================================
-   NetCalc — Binary Calculator
+   SubnetX — Binary Calculator
 ========================================== */
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ) {
 
         console.error(
-            "NetCalc: Binary Calculator elements not found."
+            "SubnetX: Binary Calculator elements not found."
         );
 
         return;
@@ -222,7 +222,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         console.log(
-            "NetCalc Binary:",
+            "SubnetX Binary:",
             ip,
             "→",
             fullBinary

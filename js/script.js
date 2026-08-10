@@ -1,5 +1,5 @@
 /* =========================================
-   NetCalc - Main Application
+   SubnetX - Main Application
 ========================================= */
 
 
@@ -116,7 +116,7 @@ function showPage(pageId) {
 
     pageTitle.textContent =
         pageNames[pageId]
-        || "NetCalc";
+        || "SubnetX";
 
 
     /* Close mobile sidebar */
