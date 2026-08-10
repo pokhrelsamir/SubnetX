@@ -107,7 +107,7 @@ function ipToInteger(ip) {
    Integer → IP
 ========================================= */
 
-function integerToIP(number) {
+function subnetIntegerToIP(number) {
 
     return [
 
