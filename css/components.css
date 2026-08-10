@@ -1112,3 +1112,233 @@
 
     overflow-wrap: anywhere;
 }
+
+
+/* =========================================
+   Subnet Calculator
+========================================= */
+
+.subnet-layout {
+
+    grid-template-columns:
+        340px 1fr;
+
+}
+
+
+/* Summary */
+
+.subnet-summary-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 9px;
+
+}
+
+
+/* Subnet Table */
+
+.subnet-table-card {
+
+    margin-top: 15px;
+
+    padding: 23px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        var(--radius-large);
+
+    background:
+        var(--surface);
+
+}
+
+
+.subnet-count {
+
+    padding:
+        5px 8px;
+
+    border-radius: 6px;
+
+    background:
+        rgba(
+            99,
+            102,
+            241,
+            0.1
+        );
+
+    color:
+        var(--primary-light);
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+    text-transform: uppercase;
+}
+
+
+/* Table Wrapper */
+
+.table-wrapper {
+
+    width: 100%;
+
+    overflow-x: auto;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 10px;
+}
+
+
+/* Table */
+
+.subnet-table {
+
+    width: 100%;
+
+    border-collapse:
+        collapse;
+
+    min-width:
+        850px;
+}
+
+
+.subnet-table th {
+
+    padding:
+        12px 13px;
+
+    border-bottom:
+        1px solid var(--border);
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.02
+        );
+
+    color:
+        var(--text-muted);
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.7px;
+
+    text-align: left;
+
+    text-transform: uppercase;
+
+    white-space: nowrap;
+}
+
+
+.subnet-table td {
+
+    padding:
+        13px;
+
+    border-bottom:
+        1px solid var(--border);
+
+    color:
+        var(--text-secondary);
+
+    font-family:
+        "SFMono-Regular",
+        Consolas,
+        monospace;
+
+    font-size: 10px;
+
+    white-space: nowrap;
+}
+
+
+.subnet-table tbody tr {
+
+    transition:
+        background var(--transition);
+}
+
+
+.subnet-table tbody tr:hover {
+
+    background:
+        rgba(
+            99,
+            102,
+            241,
+            0.04
+        );
+}
+
+
+.subnet-table tbody tr:last-child td {
+
+    border-bottom:
+        none;
+
+}
+
+
+.subnet-table td:first-child {
+
+    color:
+        var(--primary-light);
+
+    font-family:
+        inherit;
+
+    font-weight:
+        700;
+}
+
+
+.subnet-table td strong {
+
+    color:
+        var(--text);
+
+    font-family:
+        "SFMono-Regular",
+        Consolas,
+        monospace;
+
+    font-size:
+        10px;
+}
+
+
+/* Empty State */
+
+.empty-table {
+
+    padding:
+        35px !important;
+
+    color:
+        var(--text-muted) !important;
+
+    font-family:
+        inherit !important;
+
+    text-align:
+        center;
+
+}
