@@ -1859,46 +1859,169 @@
              Ports
         =================================== -->
 
-        <section
-            class="page"
-            id="port-reference"
-        >
 
-            <div class="page-heading">
+<section
+    class="page"
+    id="port-reference"
+>
 
-                <span class="eyebrow">
-                    NETWORK TOOL
+    <div class="page-heading">
+
+        <span class="eyebrow">
+            NETWORK TOOL
+        </span>
+
+        <h3>
+            Port Reference
+        </h3>
+
+        <p>
+            Search commonly used TCP and UDP ports
+            and their associated network services.
+        </p>
+
+    </div>
+
+
+    <!-- Port Controls -->
+
+    <div class="port-controls">
+
+        <div class="port-search">
+
+            <label for="portSearch">
+                Search Ports
+            </label>
+
+            <div class="search-input-wrapper">
+
+                <span>
+                    🔎
                 </span>
 
-                <h3>
-                    Port Reference
-                </h3>
+                <input
+                    type="text"
+                    id="portSearch"
+                    placeholder="Search port, service, or keyword..."
+                    autocomplete="off"
+                >
 
-                <p>
-                    Explore commonly used networking ports.
-                </p>
+            </div>
+
+        </div>
+
+
+        <div class="port-filter">
+
+            <label for="protocolFilter">
+                Protocol
+            </label>
+
+            <select id="protocolFilter">
+
+                <option value="all">
+                    All Protocols
+                </option>
+
+                <option value="TCP">
+                    TCP
+                </option>
+
+                <option value="UDP">
+                    UDP
+                </option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+
+    <!-- Port Table -->
+
+    <div class="subnet-table-card port-table-card">
+
+        <div class="card-heading">
+
+            <div>
+
+                <span class="card-label">
+                    DATABASE
+                </span>
+
+                <h4>
+                    Common Network Ports
+                </h4>
 
             </div>
 
 
-            <div class="placeholder-card">
+            <span
+                class="subnet-count"
+                id="portResultCount"
+            >
+                Loading...
+            </span>
 
-                <div class="placeholder-icon">
-                    🔌
-                </div>
+        </div>
 
-                <h3>
-                    Coming Soon
-                </h3>
 
-                <p>
-                    Port reference data will be
-                    added later.
-                </p>
+        <div class="table-wrapper">
 
-            </div>
+            <table class="subnet-table port-table">
 
-        </section>
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Port
+                        </th>
+
+                        <th>
+                            Protocol
+                        </th>
+
+                        <th>
+                            Service
+                        </th>
+
+                        <th>
+                            Description
+                        </th>
+
+                        <th>
+                            Action
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="portTableBody">
+
+                    <tr>
+
+                        <td
+                            colspan="5"
+                            class="empty-table"
+                        >
+                            Loading port database...
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</section>
 
 
         <!-- ==================================
@@ -2050,10 +2173,12 @@
 ======================================= -->
 
 <script src="js/script.js"></script>
+
 <script src="js/calculators/ipCalculator.js"></script>
-<script src="js/calculators/subSubnetXulator.js"></script>
+<script src="js/calculators/subnetCalculator.js"></script>
 <script src="js/calculators/binaryCalculator.js"></script>
 
+<script src="js/tools/portReference.js"></script>
 </body>
 
 </html>
