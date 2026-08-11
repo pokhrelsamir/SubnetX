@@ -15,7 +15,7 @@
 <a href="https://pokhrelsamir.github.io/SubnetX/">
   <img src="https://img.shields.io/badge/%F0%9F%9A%80%20Live%20Demo-SubnetX-6366f1?style=for-the-badge" alt="Live Demo">
 </a>
-<a href="https://github.com/SamirPokhrel/SubnetX">
+<a href="https://github.com/pokhrelsamir/SubnetX">
   <img src="https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Repository">
 </a>
 
