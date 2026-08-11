@@ -1,7 +1,6 @@
 /* =========================================
-   NetCalc - Networking Practice
+   SubnetX - Networking Practice
 ========================================= */
-
 
 /* =========================================
    Question Bank
@@ -133,7 +132,6 @@ const practiceQuestions = {
 
     ],
 
-
     intermediate: [
 
         {
@@ -257,7 +255,6 @@ const practiceQuestions = {
         }
 
     ],
-
 
     advanced: [
 
@@ -409,16 +406,16 @@ const questionText =
     document.getElementById("questionText");
 
 const answerList =
-    document.getElementById("answerList");
+    document.getElementById("quizOptions");
 
 const answerFeedback =
-    document.getElementById("answerFeedback");
+    document.getElementById("quizFeedback");
 
 const nextQuestion =
     document.getElementById("nextQuestion");
 
 const practiceScore =
-    document.getElementById("practiceScore");
+    document.getElementById("quizScore");
 
 const questionNumber =
     document.getElementById("questionNumber");
@@ -426,40 +423,24 @@ const questionNumber =
 const totalQuestions =
     document.getElementById("totalQuestions");
 
-const questionTopic =
-    document.getElementById("questionTopic");
+const questionProgress =
+    document.getElementById("questionProgress");
 
-const progressBar =
-    document.getElementById("progressBar");
+const quizStatus =
+    document.getElementById("quizStatus");
 
-const questionCard =
-    document.getElementById("questionCard");
-
-const quizResult =
-    document.getElementById("quizResult");
-
-const finalScore =
-    document.getElementById("finalScore");
+const quizAccuracy =
+    document.getElementById("quizAccuracy");
 
 const restartQuiz =
     document.getElementById("restartQuiz");
 
 
-/* =========================================
-   Optional Statistics Elements
-========================================= */
-
 const correctCount =
-    document.getElementById("correctCount");
+    document.getElementById("correctAnswers");
 
 const incorrectCount =
-    document.getElementById("incorrectCount");
-
-const questionCount =
-    document.getElementById("questionCount");
-
-const accuracyCount =
-    document.getElementById("accuracyCount");
+    document.getElementById("incorrectAnswers");
 
 
 /* =========================================
@@ -491,25 +472,30 @@ function updateStatistics() {
                 (correctAnswers / totalAnswered) * 100
             );
 
+
     if (practiceScore) {
         practiceScore.textContent = score;
     }
+
 
     if (correctCount) {
         correctCount.textContent = correctAnswers;
     }
 
+
     if (incorrectCount) {
         incorrectCount.textContent = incorrectAnswers;
     }
 
-    if (questionCount) {
-        questionCount.textContent =
+
+    if (totalQuestions) {
+        totalQuestions.textContent =
             currentQuestions.length;
     }
 
-    if (accuracyCount) {
-        accuracyCount.textContent =
+
+    if (quizAccuracy) {
+        quizAccuracy.textContent =
             `${accuracy}%`;
     }
 
@@ -537,9 +523,11 @@ function startQuiz() {
 
     answered = false;
 
-    questionCard.hidden = false;
 
-    quizResult.hidden = true;
+    if (quizStatus) {
+        quizStatus.textContent = "In Progress";
+    }
+
 
     updateStatistics();
 
@@ -557,79 +545,92 @@ function loadQuestion() {
     const question =
         currentQuestions[currentQuestionIndex];
 
+
     if (!question) {
+
         finishQuiz();
+
         return;
+
     }
 
+
     answered = false;
+
+
+    /* Question */
 
     questionText.textContent =
         question.question;
 
-    questionTopic.textContent =
-        question.topic;
 
     questionNumber.textContent =
         currentQuestionIndex + 1;
 
-    totalQuestions.textContent =
-        currentQuestions.length;
+
+    /* Progress */
+
+    if (questionProgress) {
+
+        questionProgress.textContent =
+            `${currentQuestionIndex + 1} / ${currentQuestions.length}`;
+
+    }
+
+
+    /* Feedback */
 
     answerFeedback.textContent = "";
 
     answerFeedback.className =
-        "answer-feedback";
+        "quiz-feedback";
+
+
+    /* Next button */
 
     nextQuestion.disabled = true;
 
-    answerList.innerHTML = "";
+
+    /* Existing HTML buttons */
+
+    const buttons =
+        answerList.querySelectorAll(
+            ".quiz-option"
+        );
 
 
-    /* -----------------------------------------
-       Progress
-    ----------------------------------------- */
+    buttons.forEach(
+        (button, index) => {
 
-    const progress =
-        (
-            currentQuestionIndex /
-            currentQuestions.length
-        ) * 100;
+            button.disabled = false;
 
-    progressBar.style.width =
-        `${progress}%`;
+            button.classList.remove(
+                "correct",
+                "incorrect",
+                "selected"
+            );
 
-
-    /* -----------------------------------------
-       Create Answers
-    ----------------------------------------- */
-
-    question.options.forEach(
-        (option, index) => {
-
-            const button =
-                document.createElement("button");
-
-            button.type = "button";
-
-            button.className =
-                "answer-button";
-
-            button.textContent =
-                option;
 
             button.dataset.answer =
                 index;
 
-            button.addEventListener(
-                "click",
-                () => selectAnswer(index)
-            );
 
-            answerList.appendChild(button);
+            const answerText =
+                button.querySelector(
+                    "span:not(.option-letter)"
+                );
+
+
+            if (answerText) {
+
+                answerText.textContent =
+                    question.options[index];
+
+            }
 
         }
     );
+
 
     updateStatistics();
 
@@ -646,25 +647,27 @@ function selectAnswer(selectedIndex) {
         return;
     }
 
+
     answered = true;
+
 
     const question =
         currentQuestions[currentQuestionIndex];
 
+
     const buttons =
         answerList.querySelectorAll(
-            ".answer-button"
+            ".quiz-option"
         );
 
 
-    /* -----------------------------------------
-       Disable all buttons
-    ----------------------------------------- */
+    /* Disable all options */
 
     buttons.forEach(
         (button, index) => {
 
             button.disabled = true;
+
 
             if (
                 index === question.answer
@@ -675,6 +678,7 @@ function selectAnswer(selectedIndex) {
                 );
 
             }
+
 
             if (
                 index === selectedIndex &&
@@ -691,9 +695,7 @@ function selectAnswer(selectedIndex) {
     );
 
 
-    /* -----------------------------------------
-       Correct Answer
-    ----------------------------------------- */
+    /* Correct */
 
     if (
         selectedIndex === question.answer
@@ -703,8 +705,10 @@ function selectAnswer(selectedIndex) {
 
         correctAnswers++;
 
+
         answerFeedback.textContent =
             "✓ Correct! Great job.";
+
 
         answerFeedback.classList.add(
             "correct-feedback"
@@ -713,18 +717,16 @@ function selectAnswer(selectedIndex) {
     }
 
 
-    /* -----------------------------------------
-       Incorrect Answer
-    ----------------------------------------- */
+    /* Incorrect */
 
     else {
 
         incorrectAnswers++;
 
+
         answerFeedback.textContent =
-            `✕ Incorrect. Correct answer: ${
-                question.options[question.answer]
-            }`;
+            `✕ Incorrect. Correct answer: ${question.options[question.answer]}`;
+
 
         answerFeedback.classList.add(
             "incorrect-feedback"
@@ -735,7 +737,34 @@ function selectAnswer(selectedIndex) {
 
     updateStatistics();
 
+
     nextQuestion.disabled = false;
+
+}
+
+
+/* =========================================
+   Attach Option Events
+========================================= */
+
+if (answerList) {
+
+    answerList
+        .querySelectorAll(".quiz-option")
+        .forEach(
+            (button, index) => {
+
+                button.addEventListener(
+                    "click",
+                    () => {
+
+                        selectAnswer(index);
+
+                    }
+                );
+
+            }
+        );
 
 }
 
@@ -750,7 +779,13 @@ if (nextQuestion) {
         "click",
         () => {
 
+            if (!answered) {
+                return;
+            }
+
+
             currentQuestionIndex++;
+
 
             if (
                 currentQuestionIndex >=
@@ -762,6 +797,7 @@ if (nextQuestion) {
                 return;
 
             }
+
 
             loadQuestion();
 
@@ -777,84 +813,48 @@ if (nextQuestion) {
 
 function finishQuiz() {
 
-    progressBar.style.width = "100%";
+    if (quizStatus) {
 
-    questionCard.hidden = true;
+        quizStatus.textContent =
+            "Completed";
 
-    quizResult.hidden = false;
-
-
-    finalScore.textContent =
-        `${score} / ${currentQuestions.length}`;
+    }
 
 
-    updateStatistics();
+    if (answerFeedback) {
+
+        answerFeedback.textContent =
+            "Quiz completed! Click Restart to try again.";
+
+    }
 
 
-    /* -----------------------------------------
-       Final Accuracy
-    ----------------------------------------- */
+    if (nextQuestion) {
+
+        nextQuestion.disabled = true;
+
+    }
+
 
     const accuracy =
         currentQuestions.length === 0
             ? 0
             : Math.round(
-                (score /
-                    currentQuestions.length) *
-                100
+                (score / currentQuestions.length) * 100
             );
 
 
-    if (accuracyCount) {
+    if (quizAccuracy) {
 
-        accuracyCount.textContent =
+        quizAccuracy.textContent =
             `${accuracy}%`;
 
     }
 
+
+    updateStatistics();
+
 }
-
-
-/* =========================================
-   Difficulty Buttons
-========================================= */
-
-document
-    .querySelectorAll(".difficulty-button")
-    .forEach(button => {
-
-        button.addEventListener(
-            "click",
-            () => {
-
-                document
-                    .querySelectorAll(
-                        ".difficulty-button"
-                    )
-                    .forEach(btn => {
-
-                        btn.classList.remove(
-                            "active"
-                        );
-
-                    });
-
-
-                button.classList.add(
-                    "active"
-                );
-
-
-                currentDifficulty =
-                    button.dataset.difficulty;
-
-
-                startQuiz();
-
-            }
-        );
-
-    });
 
 
 /* =========================================
