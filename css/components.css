@@ -2300,3 +2300,966 @@
 
     line-height: 1.7;
 }
+
+```css
+/* ==========================================
+   Networking Practice
+========================================== */
+
+/* Practice Layout */
+
+.practice-layout {
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.5fr)
+        minmax(280px, 0.8fr);
+
+    gap: 15px;
+
+    align-items: start;
+
+}
+
+
+/* ==========================================
+   Practice Card
+========================================== */
+
+.practice-card,
+.practice-score-card {
+
+    padding: 23px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        var(--radius-large);
+
+    background:
+        var(--surface);
+
+}
+
+
+/* ==========================================
+   Question Box
+========================================== */
+
+.question-box {
+
+    padding: 20px;
+
+    margin-bottom: 16px;
+
+    border:
+        1px solid
+        rgba(
+            99,
+            102,
+            241,
+            0.15
+        );
+
+    border-radius: 12px;
+
+    background:
+        rgba(
+            99,
+            102,
+            241,
+            0.05
+        );
+
+}
+
+
+.question-number {
+
+    display: block;
+
+    margin-bottom: 9px;
+
+    color:
+        var(--primary-light);
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.1px;
+
+}
+
+
+.question-box h3 {
+
+    margin: 0;
+
+    color:
+        var(--text);
+
+    font-size: 16px;
+
+    font-weight: 650;
+
+    line-height: 1.55;
+
+}
+
+
+/* ==========================================
+   Quiz Options
+========================================== */
+
+.quiz-options {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 9px;
+
+}
+
+
+.quiz-option {
+
+    width: 100%;
+
+    min-height: 58px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 11px 13px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 10px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.01
+        );
+
+    color:
+        var(--text-secondary);
+
+    text-align: left;
+
+    font-size: 11px;
+
+    cursor: pointer;
+
+    transition:
+        background var(--transition),
+        border-color var(--transition),
+        color var(--transition),
+        transform var(--transition);
+
+}
+
+
+.quiz-option:hover {
+
+    background:
+        rgba(
+            99,
+            102,
+            241,
+            0.06
+        );
+
+    border-color:
+        rgba(
+            99,
+            102,
+            241,
+            0.35
+        );
+
+    color:
+        var(--text);
+
+    transform:
+        translateY(-1px);
+
+}
+
+
+.option-letter {
+
+    width: 30px;
+
+    height: 30px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 8px;
+
+    background:
+        rgba(
+            99,
+            102,
+            241,
+            0.10
+        );
+
+    color:
+        var(--primary-light);
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+}
+
+
+/* ==========================================
+   Selected / Correct / Wrong States
+========================================== */
+
+.quiz-option.selected {
+
+    border-color:
+        var(--primary);
+
+    background:
+        rgba(
+            99,
+            102,
+            241,
+            0.10
+        );
+
+    color:
+        var(--text);
+
+}
+
+
+.quiz-option.correct {
+
+    border-color:
+        rgba(
+            34,
+            197,
+            94,
+            0.45
+        );
+
+    background:
+        rgba(
+            34,
+            197,
+            94,
+            0.09
+        );
+
+    color:
+        #4ade80;
+
+}
+
+
+.quiz-option.correct .option-letter {
+
+    background:
+        rgba(
+            34,
+            197,
+            94,
+            0.16
+        );
+
+    color:
+        #4ade80;
+
+}
+
+
+.quiz-option.incorrect {
+
+    border-color:
+        rgba(
+            239,
+            68,
+            68,
+            0.45
+        );
+
+    background:
+        rgba(
+            239,
+            68,
+            68,
+            0.08
+        );
+
+    color:
+        #f87171;
+
+}
+
+
+.quiz-option.incorrect .option-letter {
+
+    background:
+        rgba(
+            239,
+            68,
+            68,
+            0.15
+        );
+
+    color:
+        #f87171;
+
+}
+
+
+.quiz-option:disabled {
+
+    cursor:
+        default;
+
+}
+
+
+.quiz-option:disabled:hover {
+
+    transform:
+        none;
+
+}
+
+
+/* ==========================================
+   Quiz Feedback
+========================================== */
+
+.quiz-feedback {
+
+    min-height: 18px;
+
+    margin-top: 13px;
+
+    padding: 0 2px;
+
+    font-size: 10px;
+
+    line-height: 1.5;
+
+}
+
+
+.quiz-feedback.correct {
+
+    color:
+        #4ade80;
+
+}
+
+
+.quiz-feedback.incorrect {
+
+    color:
+        #f87171;
+
+}
+
+
+/* ==========================================
+   Next Button
+========================================== */
+
+#nextQuestion:disabled {
+
+    opacity:
+        0.45;
+
+    cursor:
+        not-allowed;
+
+    transform:
+        none;
+
+}
+
+
+#nextQuestion:not(:disabled):hover {
+
+    transform:
+        translateY(-1px);
+
+}
+
+
+/* ==========================================
+   Score
+========================================== */
+
+.practice-score {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding:
+        12px 0 20px;
+
+}
+
+
+.score-circle {
+
+    width: 118px;
+
+    height: 118px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border:
+        2px solid
+        rgba(
+            99,
+            102,
+            241,
+            0.25
+        );
+
+    border-radius: 50%;
+
+    background:
+        rgba(
+            99,
+            102,
+            241,
+            0.06
+        );
+
+    box-shadow:
+        0 0 35px
+        rgba(
+            99,
+            102,
+            241,
+            0.08
+        );
+
+}
+
+
+.score-circle strong {
+
+    color:
+        var(--primary-light);
+
+    font-family:
+        "SFMono-Regular",
+        Consolas,
+        monospace;
+
+    font-size: 27px;
+
+    line-height: 1;
+
+}
+
+
+.score-circle span {
+
+    margin-top: 6px;
+
+    color:
+        var(--text-muted);
+
+    font-size: 7px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+}
+
+
+/* ==========================================
+   Practice Tip
+========================================== */
+
+.practice-tip {
+
+    margin-top: 12px;
+
+    padding: 14px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 10px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.015
+        );
+
+}
+
+
+.practice-tip .card-label {
+
+    margin-bottom: 5px;
+
+}
+
+
+.practice-tip p {
+
+    color:
+        var(--text-secondary);
+
+    font-size: 10px;
+
+    line-height: 1.6;
+
+}
+
+
+/* ==========================================
+   Quiz Complete State
+========================================== */
+
+.practice-card.quiz-complete {
+
+    text-align: center;
+
+}
+
+
+.practice-card.quiz-complete .question-box {
+
+    border-color:
+        rgba(
+            34,
+            197,
+            94,
+            0.20
+        );
+
+    background:
+        rgba(
+            34,
+            197,
+            94,
+            0.05
+        );
+
+}
+
+
+/* ==========================================
+   Learn Page
+========================================== */
+
+.learning-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 12px;
+
+}
+
+
+.learning-card {
+
+    position: relative;
+
+    min-height: 175px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    padding: 19px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        var(--radius-medium);
+
+    background:
+        var(--surface);
+
+    color:
+        var(--text);
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        transform var(--transition),
+        background var(--transition),
+        border-color var(--transition);
+
+}
+
+
+.learning-card:hover {
+
+    transform:
+        translateY(-3px);
+
+    background:
+        var(--surface-light);
+
+    border-color:
+        rgba(
+            99,
+            102,
+            241,
+            0.35
+        );
+
+}
+
+
+.learning-card-icon {
+
+    width: 43px;
+
+    height: 43px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-bottom: 17px;
+
+    border-radius: 12px;
+
+    background:
+        rgba(
+            99,
+            102,
+            241,
+            0.10
+        );
+
+    font-size: 19px;
+
+}
+
+
+.learning-card-content {
+
+    padding-right: 25px;
+
+}
+
+
+.learning-card h4 {
+
+    margin:
+        4px 0 7px;
+
+    font-size: 14px;
+
+    font-weight: 650;
+
+}
+
+
+.learning-card p {
+
+    color:
+        var(--text-secondary);
+
+    font-size: 10px;
+
+    line-height: 1.6;
+
+}
+
+
+.learning-arrow {
+
+    position: absolute;
+
+    top: 20px;
+
+    right: 18px;
+
+    color:
+        var(--primary-light);
+
+    font-size: 17px;
+
+    transition:
+        transform var(--transition);
+
+}
+
+
+.learning-card:hover .learning-arrow {
+
+    transform:
+        translateX(4px);
+
+}
+
+
+/* ==========================================
+   Learning Content
+========================================== */
+
+.learning-content-card {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 16px;
+
+    margin-top: 15px;
+
+    padding: 20px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        var(--radius-large);
+
+    background:
+        var(--surface);
+
+}
+
+
+.learning-content-icon {
+
+    width: 45px;
+
+    height: 45px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background:
+        rgba(
+            99,
+            102,
+            241,
+            0.10
+        );
+
+    font-size: 20px;
+
+}
+
+
+.learning-content-card h4 {
+
+    margin:
+        3px 0 6px;
+
+    font-size: 15px;
+
+}
+
+
+.learning-content-card p {
+
+    max-width: 700px;
+
+    color:
+        var(--text-secondary);
+
+    font-size: 10px;
+
+    line-height: 1.7;
+
+}
+
+
+/* ==========================================
+   Light Theme Compatibility
+========================================== */
+
+[data-theme="light"] .quiz-option {
+
+    background:
+        rgba(
+            0,
+            0,
+            0,
+            0.015
+        );
+
+}
+
+
+[data-theme="light"] .quiz-option:hover {
+
+    background:
+        rgba(
+            99,
+            102,
+            241,
+            0.06
+        );
+
+}
+
+
+[data-theme="light"] .question-box {
+
+    background:
+        rgba(
+            99,
+            102,
+            241,
+            0.05
+        );
+
+}
+
+
+[data-theme="light"] .practice-tip {
+
+    background:
+        rgba(
+            0,
+            0,
+            0,
+            0.015
+        );
+
+}
+
+
+/* ==========================================
+   Responsive
+========================================== */
+
+@media (max-width: 1050px) {
+
+    .practice-layout {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+    .learning-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .quiz-options {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+    .learning-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+    .learning-content-card {
+
+        flex-direction:
+            column;
+
+    }
+
+    .practice-card,
+    .practice-score-card {
+
+        padding:
+            18px;
+
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .question-box h3 {
+
+        font-size: 14px;
+
+    }
+
+    .quiz-option {
+
+        min-height: 52px;
+
+    }
+
+    .score-circle {
+
+        width: 100px;
+
+        height: 100px;
+
+    }
+
+}
+```

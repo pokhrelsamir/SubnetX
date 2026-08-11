@@ -2431,102 +2431,580 @@
 </section>
 
 
-        <!-- ==================================
-             Practice
-        =================================== -->
+<!-- ==================================
+     Practice
+=================================== -->
 
-        <section
-            class="page"
-            id="practice"
-        >
+<section
+    class="page"
+    id="practice"
+>
 
-            <div class="page-heading">
+    <div class="page-heading">
 
-                <span class="eyebrow">
-                    LEARNING
-                </span>
+        <span class="eyebrow">
+            LEARNING
+        </span>
 
-                <h3>
-                    Networking Practice
-                </h3>
+        <h3>
+            Networking Practice
+        </h3>
 
-                <p>
-                    Test your networking knowledge.
-                </p>
+        <p>
+            Test your networking knowledge with
+            interactive questions and instant feedback.
+        </p>
 
-            </div>
+    </div>
 
 
-            <div class="placeholder-card">
+    <!-- Practice Layout -->
 
-                <div class="placeholder-icon">
-                    🎯
+    <div class="practice-layout">
+
+
+        <!-- Quiz Card -->
+
+        <div class="practice-card">
+
+            <div class="card-heading">
+
+                <div>
+
+                    <span class="card-label">
+                        QUIZ
+                    </span>
+
+                    <h4>
+                        Networking Challenge
+                    </h4>
+
                 </div>
 
-                <h3>
-                    Coming Soon
-                </h3>
-
-                <p>
-                    Interactive networking questions
-                    will be added later.
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <!-- ==================================
-             Learn
-        =================================== -->
-
-        <section
-            class="page"
-            id="learn"
-        >
-
-            <div class="page-heading">
-
-                <span class="eyebrow">
-                    LEARNING
+                <span
+                    class="protocol-badge"
+                    id="questionProgress"
+                >
+                    1 / 10
                 </span>
 
-                <h3>
-                    Learn Networking
-                </h3>
+            </div>
 
-                <p>
-                    Understand networking concepts
-                    through simple explanations.
-                </p>
+
+            <!-- Question -->
+
+            <div class="question-box">
+
+                <span class="question-number">
+                    QUESTION <span id="questionNumber">1</span>
+                </span>
+
+                <h3 id="questionText">
+                    What is the default subnet mask
+                    for a Class C IPv4 network?
+                </h3>
 
             </div>
 
 
-            <div class="placeholder-card">
+            <!-- Options -->
 
-                <div class="placeholder-icon">
-                    📚
+            <div
+                class="quiz-options"
+                id="quizOptions"
+            >
+
+                <button
+                    class="quiz-option"
+                    data-answer="A"
+                >
+                    <span class="option-letter">
+                        A
+                    </span>
+
+                    <span>
+                        255.0.0.0
+                    </span>
+                </button>
+
+
+                <button
+                    class="quiz-option"
+                    data-answer="B"
+                >
+                    <span class="option-letter">
+                        B
+                    </span>
+
+                    <span>
+                        255.255.0.0
+                    </span>
+                </button>
+
+
+                <button
+                    class="quiz-option"
+                    data-answer="C"
+                >
+                    <span class="option-letter">
+                        C
+                    </span>
+
+                    <span>
+                        255.255.255.0
+                    </span>
+                </button>
+
+
+                <button
+                    class="quiz-option"
+                    data-answer="D"
+                >
+                    <span class="option-letter">
+                        D
+                    </span>
+
+                    <span>
+                        255.255.255.255
+                    </span>
+                </button>
+
+            </div>
+
+
+            <!-- Feedback -->
+
+            <div
+                class="quiz-feedback"
+                id="quizFeedback"
+            ></div>
+
+
+            <!-- Actions -->
+
+            <div class="calculator-actions">
+
+                <button
+                    class="primary-button"
+                    id="nextQuestion"
+                    disabled
+                >
+                    Next Question
+
+                    <span>
+                        →
+                    </span>
+                </button>
+
+                <button
+                    class="secondary-button"
+                    id="restartQuiz"
+                >
+                    Restart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Score Card -->
+
+        <div class="results-card practice-score-card">
+
+            <div class="card-heading">
+
+                <div>
+
+                    <span class="card-label">
+                        PROGRESS
+                    </span>
+
+                    <h4>
+                        Your Performance
+                    </h4>
+
                 </div>
 
-                <h3>
-                    Coming Soon
-                </h3>
+                <span
+                    class="result-badge"
+                    id="quizStatus"
+                >
+                    In Progress
+                </span>
 
-                <p>
-                    Networking lessons will be
-                    added in a future version.
+            </div>
+
+
+            <div class="practice-score">
+
+                <div class="score-circle">
+
+                    <strong id="quizScore">
+                        0
+                    </strong>
+
+                    <span>
+                        SCORE
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="result-grid">
+
+                <div class="result-item">
+
+                    <span>
+                        Correct
+                    </span>
+
+                    <strong id="correctAnswers">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="result-item">
+
+                    <span>
+                        Incorrect
+                    </span>
+
+                    <strong id="incorrectAnswers">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="result-item">
+
+                    <span>
+                        Questions
+                    </span>
+
+                    <strong id="totalQuestions">
+                        10
+                    </strong>
+
+                </div>
+
+
+                <div class="result-item">
+
+                    <span>
+                        Accuracy
+                    </span>
+
+                    <strong id="quizAccuracy">
+                        0%
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="practice-tip">
+
+                <span class="card-label">
+                    TIP
+                </span>
+
+                <p id="practiceTip">
+                    Read each question carefully
+                    before selecting your answer.
                 </p>
 
             </div>
 
-        </section>
+        </div>
+
+    </div>
+
+</section>
 
 
-    </main>
+<!-- ==================================
+     Learn
+=================================== -->
 
-</div>
+<section
+    class="page"
+    id="learn"
+>
+
+    <div class="page-heading">
+
+        <span class="eyebrow">
+            LEARNING
+        </span>
+
+        <h3>
+            Learn Networking
+        </h3>
+
+        <p>
+            Understand networking concepts through
+            simple explanations and practical examples.
+        </p>
+
+    </div>
+
+
+    <!-- Learning Topics -->
+
+    <div class="learning-grid">
+
+
+        <!-- IPv4 -->
+
+        <button
+            class="learning-card"
+            data-topic="ipv4"
+        >
+
+            <div class="learning-card-icon">
+                🌐
+            </div>
+
+            <div class="learning-card-content">
+
+                <span class="card-label">
+                    FUNDAMENTALS
+                </span>
+
+                <h4>
+                    IPv4 Addressing
+                </h4>
+
+                <p>
+                    Learn how IPv4 addresses are structured,
+                    divided into octets, and represented.
+                </p>
+
+            </div>
+
+            <span class="learning-arrow">
+                →
+            </span>
+
+        </button>
+
+
+        <!-- Subnetting -->
+
+        <button
+            class="learning-card"
+            data-topic="subnetting"
+        >
+
+            <div class="learning-card-icon">
+                🧮
+            </div>
+
+            <div class="learning-card-content">
+
+                <span class="card-label">
+                    NETWORKING
+                </span>
+
+                <h4>
+                    Subnetting
+                </h4>
+
+                <p>
+                    Understand CIDR, subnet masks,
+                    network addresses and host ranges.
+                </p>
+
+            </div>
+
+            <span class="learning-arrow">
+                →
+            </span>
+
+        </button>
+
+
+        <!-- Binary -->
+
+        <button
+            class="learning-card"
+            data-topic="binary"
+        >
+
+            <div class="learning-card-icon">
+                🔢
+            </div>
+
+            <div class="learning-card-content">
+
+                <span class="card-label">
+                    FUNDAMENTALS
+                </span>
+
+                <h4>
+                    Binary &amp; IP Addresses
+                </h4>
+
+                <p>
+                    Learn how decimal IPv4 octets are
+                    converted into 8-bit binary values.
+                </p>
+
+            </div>
+
+            <span class="learning-arrow">
+                →
+            </span>
+
+        </button>
+
+
+        <!-- Ports -->
+
+        <button
+            class="learning-card"
+            data-topic="ports"
+        >
+
+            <div class="learning-card-icon">
+                🔌
+            </div>
+
+            <div class="learning-card-content">
+
+                <span class="card-label">
+                    NETWORK TOOLS
+                </span>
+
+                <h4>
+                    TCP &amp; UDP Ports
+                </h4>
+
+                <p>
+                    Understand ports, protocols and
+                    commonly used networking services.
+                </p>
+
+            </div>
+
+            <span class="learning-arrow">
+                →
+            </span>
+
+        </button>
+
+
+        <!-- MAC -->
+
+        <button
+            class="learning-card"
+            data-topic="mac"
+        >
+
+            <div class="learning-card-icon">
+                🖧
+            </div>
+
+            <div class="learning-card-content">
+
+                <span class="card-label">
+                    NETWORKING
+                </span>
+
+                <h4>
+                    MAC Addresses
+                </h4>
+
+                <p>
+                    Learn about MAC addresses, OUI,
+                    unicast and locally administered addresses.
+                </p>
+
+            </div>
+
+            <span class="learning-arrow">
+                →
+            </span>
+
+        </button>
+
+
+        <!-- Network Basics -->
+
+        <button
+            class="learning-card"
+            data-topic="network-basics"
+        >
+
+            <div class="learning-card-icon">
+                📡
+            </div>
+
+            <div class="learning-card-content">
+
+                <span class="card-label">
+                    FUNDAMENTALS
+                </span>
+
+                <h4>
+                    Networking Basics
+                </h4>
+
+                <p>
+                    Build a foundation with hosts,
+                    networks, protocols and communication.
+                </p>
+
+            </div>
+
+            <span class="learning-arrow">
+                →
+            </span>
+
+        </button>
+
+    </div>
+
+
+    <!-- Learning Content -->
+
+    <div
+        class="learning-content-card"
+        id="learningContent"
+    >
+
+        <div class="learning-content-icon">
+            📚
+        </div>
+
+        <div>
+
+            <span class="card-label">
+                SELECT A TOPIC
+            </span>
+
+            <h4>
+                Start Learning Networking
+            </h4>
+
+            <p>
+                Select any topic above to explore
+                networking concepts, examples and
+                important terminology.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
 
 
 <!-- ======================================
