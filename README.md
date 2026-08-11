@@ -2,14 +2,9 @@
 
 <div align="center">
 
-<img
-src="https://github.com/user-attachments/assets/0efc8dba-6cd9-4e31-a4a4-31a9e94c0c77"
-alt="SubnetX Banner"
-width="100%"
+<img src="https://github.com/user-attachments/assets/0efc8dba-6cd9-4e31-a4a4-31a9e94c0c77" alt="SubnetX Banner" width="100%">
 
->
-
-<br>
+<br><br>
 
 ### Calculate. Understand. Master.
 
@@ -18,44 +13,18 @@ width="100%"
 <br>
 
 <a href="https://pokhrelsamir.github.io/SubnetX/">
-  <img
-    src="https://img.shields.io/badge/🚀%20Live%20Demo-SubnetX-6366f1?style=for-the-badge"
-    alt="Live Demo"
-  >
+  <img src="https://img.shields.io/badge/%F0%9F%9A%80%20Live%20Demo-SubnetX-6366f1?style=for-the-badge" alt="Live Demo">
 </a>
-
 <a href="https://github.com/SamirPokhrel/SubnetX">
-  <img
-    src="https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github&logoColor=white"
-    alt="GitHub Repository"
-  >
+  <img src="https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Repository">
 </a>
 
 <br><br>
 
-<img
-src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white"
-alt="HTML5"
-
->
-
-<img
-src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white"
-alt="CSS3"
-
->
-
-<img
-src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"
-alt="JavaScript"
-
->
-
-<img
-src="https://img.shields.io/badge/Responsive-Yes-22c55e?style=for-the-badge"
-alt="Responsive"
-
->
+<img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5">
+<img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3">
+<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript">
+<img src="https://img.shields.io/badge/Responsive-Yes-22c55e?style=for-the-badge" alt="Responsive">
 
 </div>
 
@@ -206,13 +175,13 @@ AABBCCDDEEFF
 
 SubnetX includes an interactive networking quiz designed to help users test their networking knowledge.
 
-### Difficulty Levels
+## Difficulty Levels
 
 * 🟢 Beginner
 * 🟡 Intermediate
 * 🔴 Advanced
 
-### Practice Topics
+## Practice Topics
 
 Questions cover areas such as:
 
@@ -223,7 +192,7 @@ Questions cover areas such as:
 * TCP/UDP ports
 * MAC addresses
 
-### Quiz Features
+## Quiz Features
 
 * Randomized questions
 * Multiple-choice answers
@@ -369,11 +338,7 @@ The following screenshots demonstrate the main sections and functionality availa
 The SubnetX dashboard provides quick access to all calculators, tools, practice features, and learning resources.
 
 <p align="center">
-  <img
-    src="https://github.com/user-attachments/assets/fd512ae7-3d4b-4c82-a1bb-fc81d7bcd3de"
-    alt="SubnetX Dashboard"
-    width="100%"
-  >
+  <img src="https://github.com/user-attachments/assets/fd512ae7-3d4b-4c82-a1bb-fc81d7bcd3de" alt="SubnetX Dashboard" width="100%">
 </p>
 
 ---
@@ -383,11 +348,7 @@ The SubnetX dashboard provides quick access to all calculators, tools, practice 
 Calculate complete IPv4 network information from an IP address and CIDR prefix.
 
 <p align="center">
-  <img
-    src="https://github.com/user-attachments/assets/c9c296fe-6343-4a32-9b47-7d6ef0cd5020"
-    alt="SubnetX IPv4 Calculator"
-    width="100%"
-  >
+  <img src="https://github.com/user-attachments/assets/c9c296fe-6343-4a32-9b47-7d6ef0cd5020" alt="SubnetX IPv4 Calculator" width="100%">
 </p>
 
 ---
@@ -397,11 +358,7 @@ Calculate complete IPv4 network information from an IP address and CIDR prefix.
 Generate and analyze multiple subnets from an existing IPv4 network.
 
 <p align="center">
-  <img
-    src="https://github.com/user-attachments/assets/60633119-3e87-43e4-985d-0abb5ee1e409"
-    alt="SubnetX Subnet Calculator"
-    width="100%"
-  >
+  <img src="https://github.com/user-attachments/assets/60633119-3e87-43e4-985d-0abb5ee1e409" alt="SubnetX Subnet Calculator" width="100%">
 </p>
 
 ---
@@ -411,11 +368,7 @@ Generate and analyze multiple subnets from an existing IPv4 network.
 Convert IPv4 addresses into complete binary representations.
 
 <p align="center">
-  <img
-    src="https://github.com/user-attachments/assets/9d465636-f34a-4826-a320-37b2736975f6"
-    alt="SubnetX Binary Converter"
-    width="100%"
-  >
+  <img src="https://github.com/user-attachments/assets/9d465636-f34a-4826-a320-37b2736975f6" alt="SubnetX Binary Converter" width="100%">
 </p>
 
 ---
@@ -425,11 +378,7 @@ Convert IPv4 addresses into complete binary representations.
 Search and filter commonly used networking ports.
 
 <p align="center">
-  <img
-    src="https://github.com/user-attachments/assets/cdafa99d-166e-439e-82cf-264cefdcb611"
-    alt="SubnetX Port Reference"
-    width="100%"
-  >
+  <img src="https://github.com/user-attachments/assets/cdafa99d-166e-439e-82cf-264cefdcb611" alt="SubnetX Port Reference" width="100%">
 </p>
 
 ---
@@ -439,11 +388,7 @@ Search and filter commonly used networking ports.
 Convert and analyze MAC addresses using multiple standard formats.
 
 <p align="center">
-  <img
-    src="https://github.com/user-attachments/assets/5aa8a7ad-9603-4249-af9e-2a5f3f3fa06c"
-    alt="SubnetX MAC Converter"
-    width="100%"
-  >
+  <img src="https://github.com/user-attachments/assets/5aa8a7ad-9603-4249-af9e-2a5f3f3fa06c" alt="SubnetX MAC Converter" width="100%">
 </p>
 
 ---
@@ -453,11 +398,7 @@ Convert and analyze MAC addresses using multiple standard formats.
 Test networking knowledge with interactive multiple-choice questions.
 
 <p align="center">
-  <img
-    src="https://github.com/user-attachments/assets/b80c93da-7fdb-493d-8aa0-44d110989bd0"
-    alt="SubnetX Networking Practice"
-    width="100%"
-  >
+  <img src="https://github.com/user-attachments/assets/b80c93da-7fdb-493d-8aa0-44d110989bd0" alt="SubnetX Networking Practice" width="100%">
 </p>
 
 ---
@@ -467,26 +408,22 @@ Test networking knowledge with interactive multiple-choice questions.
 Explore six structured networking lessons with examples, tables, quick checks, and Previous/Next navigation.
 
 <p align="center">
-  <img
-    src="https://github.com/user-attachments/assets/3f6b8f2f-3c46-4908-9960-78d69af187d5"
-    alt="SubnetX Learn Networking"
-    width="100%"
-  >
+  <img src="https://github.com/user-attachments/assets/3f6b8f2f-3c46-4908-9960-78d69af187d5" alt="SubnetX Learn Networking" width="100%">
 </p>
 
 ---
 
 # 🛠️ Technologies Used
 
-| Technology                   | Purpose                               |
-| ---------------------------- | ------------------------------------- |
-| **HTML5**                    | Application structure                 |
-| **CSS3**                     | Styling, layout and responsive design |
-| **JavaScript**               | Application logic and interactivity   |
-| **DOM API**                  | Dynamic interface updates             |
-| **CSS Grid**                 | Responsive layouts                    |
-| **Flexbox**                  | Component alignment                   |
-| **Local Browser Processing** | Networking calculations               |
+| Technology | Purpose |
+| :--- | :--- |
+| **HTML5** | Application structure |
+| **CSS3** | Styling, layout, and responsive design |
+| **JavaScript** | Application logic and interactivity |
+| **DOM API** | Dynamic interface updates |
+| **CSS Grid** | Responsive layouts |
+| **Flexbox** | Component alignment |
+| **Local Browser Processing** | Networking calculations |
 
 ---
 
@@ -508,7 +445,7 @@ SubnetX/
 │   │
 │   ├── calculators/
 │   │   ├── ipCalculator.js
-│   │   ├── subSubnetXulator.js
+│   │   ├── subnetCalculator.js
 │   │   └── binaryCalculator.js
 │   │
 │   ├── tools/
@@ -526,8 +463,6 @@ SubnetX/
 └── data/
     └── ...
 ```
-
-> **Note:** Adjust the JavaScript file names in this structure if your final project uses a different folder organization.
 
 ---
 
@@ -547,13 +482,7 @@ cd SubnetX
 
 ## 3. Open the Application
 
-You can simply open:
-
-```text
-index.html
-```
-
-in your browser.
+Simply open `index.html` in your browser.
 
 For the best development experience, use **Visual Studio Code with Live Server**.
 
@@ -578,15 +507,12 @@ Try the fully deployed SubnetX application:
 <div align="center">
 
 <a href="https://pokhrelsamir.github.io/SubnetX/">
-  <img
-    src="https://img.shields.io/badge/🚀%20Open%20SubnetX-Live%20Demo-6366f1?style=for-the-badge"
-    alt="Open SubnetX Live Demo"
-  >
+  <img src="https://img.shields.io/badge/%F0%9F%9A%80%20Open%20SubnetX-Live%20Demo-6366f1?style=for-the-badge" alt="Open SubnetX Live Demo">
 </a>
 
 <br><br>
 
-**https://pokhrelsamir.github.io/SubnetX/**
+[https://pokhrelsamir.github.io/SubnetX/](https://pokhrelsamir.github.io/SubnetX/)
 
 </div>
 
@@ -606,13 +532,13 @@ CIDR:       /24
 SubnetX calculates:
 
 ```text
-Network Address:    192.168.1.0
-Broadcast Address:  192.168.1.255
-Subnet Mask:        255.255.255.0
-First Host:         192.168.1.1
-Last Host:          192.168.1.254
-Total Addresses:    256
-Usable Hosts:       254
+Network Address:   192.168.1.0
+Broadcast Address: 192.168.1.255
+Subnet Mask:       255.255.255.0
+First Host:        192.168.1.1
+Last Host:         192.168.1.254
+Total Addresses:   256
+Usable Hosts:      254
 ```
 
 No external networking service is required for these calculations.
@@ -623,7 +549,7 @@ No external networking service is required for these calculations.
 
 SubnetX follows a modern dashboard-style interface.
 
-### UI Features
+## UI Features
 
 * Dark networking-themed interface
 * Glassmorphism-inspired cards
@@ -645,7 +571,7 @@ SubnetX follows a modern dashboard-style interface.
 
 SubnetX is designed to work across different screen sizes.
 
-### Supported Layouts
+## Supported Layouts
 
 ```text
 🖥️ Desktop
@@ -672,7 +598,7 @@ The responsive stylesheet adjusts:
 
 SubnetX is designed around local browser processing.
 
-### No Backend Required
+## No Backend Required
 
 Networking calculations are performed locally using JavaScript.
 
@@ -742,8 +668,6 @@ SubnetX
 
 # 🔮 Future Improvements
 
-Possible future enhancements include:
-
 * [ ] IPv6 Calculator
 * [ ] IPv6 Learning Section
 * [ ] VLSM Calculator
@@ -771,34 +695,34 @@ Contributions are welcome.
 
 If you would like to improve SubnetX:
 
-### 1. Fork the repository
+## 1. Fork the Repository
 
 Create a fork of the repository on GitHub.
 
-### 2. Create a branch
+## 2. Create a Branch
 
 ```bash
 git checkout -b feature/new-feature
 ```
 
-### 3. Make your changes
+## 3. Make Your Changes
 
 Improve the calculators, UI, learning content, practice questions, or networking tools.
 
-### 4. Commit your changes
+## 4. Commit Your Changes
 
 ```bash
 git add .
 git commit -m "Add new networking feature"
 ```
 
-### 5. Push your branch
+## 5. Push Your Branch
 
 ```bash
 git push origin feature/new-feature
 ```
 
-### 6. Open a Pull Request
+## 6. Open a Pull Request
 
 Describe your changes and submit the pull request.
 
@@ -812,27 +736,16 @@ Describe your changes and submit the pull request.
 
 **B.Sc. CSIT Student | Web Developer | Networking Enthusiast**
 
-Built using **HTML, CSS and JavaScript**
+Built using **HTML, CSS, and JavaScript**
 
 <br>
 
-<p>
-  <a href="https://github.com/pokhrelsamir">
-    <img
-      src="https://img.shields.io/badge/GitHub-pokhrelsamir-181717?style=for-the-badge&logo=github&logoColor=white"
-      alt="GitHub"
-    >
-  </a>
-
- 
-
-  <a href="https://www.linkedin.com/in/samirpokhrel/">
-    <img
-      src="https://img.shields.io/badge/LinkedIn-Samir%20Pokhrel-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"
-      alt="LinkedIn"
-    >
-  </a>
-</p>
+<a href="https://github.com/pokhrelsamir">
+  <img src="https://img.shields.io/badge/GitHub-pokhrelsamir-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub">
+</a>
+<a href="https://www.linkedin.com/in/samirpokhrel/">
+  <img src="https://img.shields.io/badge/LinkedIn-Samir%20Pokhrel-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn">
+</a>
 
 </div>
 
@@ -852,17 +765,11 @@ Your support helps motivate further development!
 
 **Calculate. Understand. Master.**
 
-Made for learning.
-Built for practice.
+Made for learning.  
+Built for practice.  
 Designed for networking.
 
 <br>
 
-<a href="https://pokhrelsamir.github.io/SubnetX/">
-  <img
-    src="https://img.shields.io/badge/🚀%20Try%20SubnetX-6366f1?style=for-the-badge"
-    alt="Try SubnetX"
-  >
-</a>
 
 </div>
