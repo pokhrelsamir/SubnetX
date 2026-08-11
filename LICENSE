@@ -1,21 +1,41 @@
-MIT License
+# SubnetX Personal Project License
 
 Copyright (c) 2026 Samir Pokhrel
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+All rights reserved.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+## Permission
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+You are permitted to:
+
+* View the source code for educational purposes.
+* Use the project for personal learning and experimentation.
+* Modify the source code for your own personal use.
+* Fork the repository for educational purposes.
+
+## Restrictions
+
+You may not:
+
+* Sell or commercially distribute this project or substantial portions of it.
+* Claim the original project or its source code as your own.
+* Remove or modify the original copyright notice.
+* Redistribute the project as your own work without permission from the author.
+
+## Attribution
+
+If you use or modify SubnetX for educational or personal purposes, please retain the original copyright notice and provide appropriate credit to the original author.
+
+## Disclaimer
+
+SubnetX is provided for educational and informational purposes only.
+
+The software is provided "as is", without warranty of any kind. The author shall not be liable for any damage, loss, or other consequences resulting from the use of this software.
+
+---
+
+**Project:** SubnetX — Network Toolkit
+
+**Author:** Samir Pokhrel
+
+**Copyright:** © 2026 Samir Pokhrel
