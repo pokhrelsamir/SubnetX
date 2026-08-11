@@ -1,0 +1,2185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="SubnetX - IPv4 Network Calculator and Networking Toolkit"
+    >
+
+    <meta
+        name="theme-color"
+        content="#0b1020"
+    >
+
+    <title>SubnetX — Network Calculator</title>
+
+
+    <!-- Stylesheets -->
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/components.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/responsive.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<div class="app">
+
+    <!-- ======================================
+         Sidebar
+    ======================================= -->
+
+    <aside
+        class="sidebar"
+        id="sidebar"
+    >
+
+        <!-- Brand -->
+
+        <div class="brand">
+
+            <div class="brand-logo">
+                N
+            </div>
+
+            <div class="brand-text">
+
+                <h1>
+                    SubnetX
+                </h1>
+
+                <span>
+                    Network Toolkit
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- Navigation -->
+
+        <nav class="navigation">
+
+
+            <!-- Main -->
+
+            <div class="nav-section">
+
+                <span class="nav-title">
+                    MAIN
+                </span>
+
+                <button
+                    class="nav-item active"
+                    data-page="dashboard"
+                >
+
+                    <span class="nav-icon">
+                        🏠
+                    </span>
+
+                    <span>
+                        Dashboard
+                    </span>
+
+                </button>
+
+            </div>
+
+
+            <!-- Calculators -->
+
+            <div class="nav-section">
+
+                <span class="nav-title">
+                    CALCULATORS
+                </span>
+
+
+                <button
+                    class="nav-item"
+                    data-page="ip-calculator"
+                >
+
+                    <span class="nav-icon">
+                        🌐
+                    </span>
+
+                    <span>
+                        IP Calculator
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="nav-item"
+                    data-page="subnet-calculator"
+                >
+
+                    <span class="nav-icon">
+                        🧮
+                    </span>
+
+                    <span>
+                        Subnet Calculator
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="nav-item"
+                    data-page="binary-calculator"
+                >
+
+                    <span class="nav-icon">
+                        🔢
+                    </span>
+
+                    <span>
+                        Binary Converter
+                    </span>
+
+                </button>
+
+            </div>
+
+
+            <!-- Network Tools -->
+
+            <div class="nav-section">
+
+                <span class="nav-title">
+                    NETWORK TOOLS
+                </span>
+
+
+                <button
+                    class="nav-item"
+                    data-page="port-reference"
+                >
+
+                    <span class="nav-icon">
+                        🔌
+                    </span>
+
+                    <span>
+                        Port Reference
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="nav-item"
+                    data-page="mac-converter"
+                >
+
+                    <span class="nav-icon">
+                        🖧
+                    </span>
+
+                    <span>
+                        MAC Converter
+                    </span>
+
+                </button>
+
+            </div>
+
+
+            <!-- Learning -->
+
+            <div class="nav-section">
+
+                <span class="nav-title">
+                    LEARNING
+                </span>
+
+
+                <button
+                    class="nav-item"
+                    data-page="practice"
+                >
+
+                    <span class="nav-icon">
+                        🎯
+                    </span>
+
+                    <span>
+                        Practice
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="nav-item"
+                    data-page="learn"
+                >
+
+                    <span class="nav-icon">
+                        📚
+                    </span>
+
+                    <span>
+                        Learn
+                    </span>
+
+                </button>
+
+            </div>
+
+        </nav>
+
+
+        <!-- Sidebar Footer -->
+
+        <div class="sidebar-footer">
+
+            <span class="status-indicator"></span>
+
+            <span>
+                SubnetX v1.0
+            </span>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ======================================
+         Main Content
+    ======================================= -->
+
+    <main class="main-content">
+
+
+        <!-- ==================================
+             Topbar
+        =================================== -->
+
+        <header class="topbar">
+
+            <div class="topbar-left">
+
+                <button
+                    class="menu-button"
+                    id="menuButton"
+                    aria-label="Open menu"
+                >
+                    ☰
+                </button>
+
+
+                <div>
+
+                    <span
+                        class="breadcrumb"
+                        id="breadcrumb"
+                    >
+                        SubnetX
+                    </span>
+
+                    <h2 id="pageTitle">
+                        Dashboard
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="topbar-actions">
+
+            <button
+            class="icon-button"
+            id="themeButton"
+            title="Switch to light mode"
+            aria-label="Switch to light mode"
+        >
+    🌙
+            </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- ==================================
+             Dashboard
+        =================================== -->
+
+        <section
+            class="page active-page"
+            id="dashboard"
+        >
+
+
+            <!-- Hero -->
+
+            <div class="hero">
+
+                <div class="hero-content">
+
+                    <span class="eyebrow">
+                        NETWORKING TOOLKIT
+                    </span>
+
+                    <h3>
+                        Calculate.
+                        <span>Understand.</span>
+                        Master.
+                    </h3>
+
+                    <p>
+                        A simple and powerful toolkit for
+                        IPv4 calculations, subnetting,
+                        networking utilities, and
+                        networking practice.
+                    </p>
+
+
+                    <button
+                        class="hero-button"
+                        data-page="ip-calculator"
+                    >
+                        🌐 Open IP Calculator
+                        <span>→</span>
+                    </button>
+
+                </div>
+
+
+                <div class="hero-visual">
+
+                    <div class="network-orbit">
+
+                        <span class="orbit-node node-one">
+                            01
+                        </span>
+
+                        <span class="orbit-node node-two">
+                            10
+                        </span>
+
+                        <span class="orbit-node node-three">
+                            IP
+                        </span>
+
+                        <div class="network-core">
+                            🌐
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Quick Stats -->
+
+            <div class="stats-grid">
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        🌐
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Available Tools
+                        </span>
+
+                        <strong>
+                            6
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        📡
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Protocol
+                        </span>
+
+                        <strong>
+                            IPv4
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ⚡
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Processing
+                        </span>
+
+                        <strong>
+                            Local
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        🔒
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Data Privacy
+                        </span>
+
+                        <strong>
+                            100%
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Tools -->
+
+            <div class="section-header">
+
+                <div>
+
+                    <span class="eyebrow">
+                        EXPLORE
+                    </span>
+
+                    <h3>
+                        Networking Tools
+                    </h3>
+
+                </div>
+
+                <p>
+                    Choose a tool to get started.
+                </p>
+
+            </div>
+
+
+            <div class="tool-grid">
+
+
+                <!-- IP Calculator -->
+
+                <button
+                    class="tool-card"
+                    data-page="ip-calculator"
+                >
+
+                    <div class="tool-card-top">
+
+                        <div class="tool-icon">
+                            🌐
+                        </div>
+
+                        <span class="tool-arrow">
+                            →
+                        </span>
+
+                    </div>
+
+                    <h4>
+                        IP Calculator
+                    </h4>
+
+                    <p>
+                        Calculate network address,
+                        broadcast address, host range,
+                        subnet mask and more.
+                    </p>
+
+                    <span class="tool-status available">
+                        Available
+                    </span>
+
+                </button>
+
+
+                <!-- Subnet -->
+
+                <button
+                    class="tool-card"
+                    data-page="subnet-calculator"
+                >
+
+                    <div class="tool-card-top">
+
+                        <div class="tool-icon">
+                            🧮
+                        </div>
+
+                        <span class="tool-arrow">
+                            →
+                        </span>
+
+                    </div>
+
+                    <h4>
+                        Subnet Calculator
+                    </h4>
+
+                    <p>
+                        Divide networks into smaller
+                        subnets and analyze address ranges.
+                    </p>
+
+                    <span class="tool-status available">
+                        Available
+                    </span>
+                </button>
+
+
+                <!-- Binary -->
+
+                <button
+                    class="tool-card"
+                    data-page="binary-calculator"
+                >
+
+                    <div class="tool-card-top">
+
+                        <div class="tool-icon">
+                            🔢
+                        </div>
+
+                        <span class="tool-arrow">
+                            →
+                        </span>
+
+                    </div>
+
+                    <h4>
+                        Binary Converter
+                    </h4>
+
+                    <p>
+                        Convert IPv4 addresses between
+                        decimal and binary notation.
+                    </p>
+
+                    <span class="tool-status available">
+                        Available
+                    </span>
+
+                </button>
+
+
+                <!-- Ports -->
+
+                <button
+                    class="tool-card"
+                    data-page="port-reference"
+                >
+
+                    <div class="tool-card-top">
+
+                        <div class="tool-icon">
+                            🔌
+                        </div>
+
+                        <span class="tool-arrow">
+                            →
+                        </span>
+
+                    </div>
+
+                    <h4>
+                        Port Reference
+                    </h4>
+
+                    <p>
+                        Search common TCP and UDP ports
+                        and their associated services.
+                    </p>
+
+                    <span class="tool-status available">
+                        Available
+                    </span>
+
+                </button>
+
+
+                <!-- Practice -->
+
+                <button
+                    class="tool-card"
+                    data-page="practice"
+                >
+
+                    <div class="tool-card-top">
+
+                        <div class="tool-icon">
+                            🎯
+                        </div>
+
+                        <span class="tool-arrow">
+                            →
+                        </span>
+
+                    </div>
+
+                    <h4>
+                        Networking Practice
+                    </h4>
+
+                    <p>
+                        Test your subnetting and networking
+                        knowledge with interactive questions.
+                    </p>
+
+                    <span class="tool-status coming">
+                        Coming Soon
+                    </span>
+
+                </button>
+
+
+                <!-- Learn -->
+
+                <button
+                    class="tool-card"
+                    data-page="learn"
+                >
+
+                    <div class="tool-card-top">
+
+                        <div class="tool-icon">
+                            📚
+                        </div>
+
+                        <span class="tool-arrow">
+                            →
+                        </span>
+
+                    </div>
+
+                    <h4>
+                        Learn Networking
+                    </h4>
+
+                    <p>
+                        Explore networking concepts through
+                        simple explanations and examples.
+                    </p>
+
+                    <span class="tool-status coming">
+                        Coming Soon
+                    </span>
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================
+             IP Calculator
+        =================================== -->
+
+        <section
+            class="page"
+            id="ip-calculator"
+        >
+
+            <div class="page-heading">
+
+                <span class="eyebrow">
+                    CALCULATOR
+                </span>
+
+                <h3>
+                    IPv4 Network Calculator
+                </h3>
+
+                <p>
+                    Enter an IPv4 address and CIDR prefix
+                    to calculate detailed network information.
+                </p>
+
+            </div>
+
+
+            <!-- Calculator -->
+
+            <div class="calculator-layout">
+
+
+                <!-- Input Card -->
+
+                <div class="calculator-card">
+
+                    <div class="card-heading">
+
+                        <div>
+
+                            <span class="card-label">
+                                INPUT
+                            </span>
+
+                            <h4>
+                                Network Details
+                            </h4>
+
+                        </div>
+
+                        <span class="protocol-badge">
+                            IPv4
+                        </span>
+
+                    </div>
+
+
+                    <!-- IP Input -->
+
+                    <div class="input-group">
+
+                        <label for="ipInput">
+                            IPv4 Address
+                        </label>
+
+                        <input
+                            type="text"
+                            id="ipInput"
+                            value="192.168.1.25"
+                            placeholder="192.168.1.25"
+                            autocomplete="off"
+                        >
+
+                        <small>
+                            Example: 192.168.1.25
+                        </small>
+
+                    </div>
+
+
+                    <!-- CIDR Input -->
+
+                    <div class="input-group">
+
+                        <label for="cidrInput">
+                            CIDR Prefix
+                        </label>
+
+                        <div class="cidr-input">
+
+                            <span>/</span>
+
+                            <input
+                                type="number"
+                                id="cidrInput"
+                                value="24"
+                                min="0"
+                                max="32"
+                            >
+
+                        </div>
+
+                        <small>
+                            Valid range: /0 to /32
+                        </small>
+
+                    </div>
+
+
+                    <!-- Error -->
+
+                    <div
+                        class="input-error"
+                        id="ipError"
+                    ></div>
+
+
+                    <!-- Actions -->
+
+                    <div class="calculator-actions">
+
+                        <button
+                            class="primary-button"
+                            id="calculateIP"
+                        >
+                            Calculate Network
+                            <span>→</span>
+                        </button>
+
+
+                        <button
+                            class="secondary-button"
+                            id="clearIP"
+                        >
+                            Clear
+                        </button>
+
+                    </div>
+
+
+                    <!-- Example -->
+
+                    <div class="example-box">
+
+                        <span>
+                            QUICK EXAMPLE
+                        </span>
+
+                        <button
+                            type="button"
+                            id="quickExample"
+                        >
+                            192.168.1.25/24
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Results -->
+
+                <div
+                    class="results-card"
+                    id="ipResults"
+                >
+
+                    <div class="card-heading">
+
+                        <div>
+
+                            <span class="card-label">
+                                RESULTS
+                            </span>
+
+                            <h4>
+                                Network Information
+                            </h4>
+
+                        </div>
+
+                        <div class="result-badge">
+                            Calculated
+                        </div>
+
+                    </div>
+
+
+                    <!-- Primary Results -->
+
+                    <div class="result-highlight">
+
+                        <div>
+
+                            <span>
+                                NETWORK ADDRESS
+                            </span>
+
+                            <strong id="resultNetwork">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="result-divider"></div>
+
+
+                        <div>
+
+                            <span>
+                                BROADCAST ADDRESS
+                            </span>
+
+                            <strong id="resultBroadcast">
+                                —
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Result Grid -->
+
+                    <div class="result-grid">
+
+
+                        <div class="result-item">
+
+                            <span>
+                                IP Address
+                            </span>
+
+                            <strong id="resultIP">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="result-item">
+
+                            <span>
+                                CIDR
+                            </span>
+
+                            <strong id="resultCIDR">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="result-item">
+
+                            <span>
+                                Subnet Mask
+                            </span>
+
+                            <strong id="resultSubnet">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="result-item">
+
+                            <span>
+                                Wildcard Mask
+                            </span>
+
+                            <strong id="resultWildcard">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="result-item">
+
+                            <span>
+                                First Usable Host
+                            </span>
+
+                            <strong id="resultFirstHost">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="result-item">
+
+                            <span>
+                                Last Usable Host
+                            </span>
+
+                            <strong id="resultLastHost">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="result-item">
+
+                            <span>
+                                Total Addresses
+                            </span>
+
+                            <strong id="resultTotal">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="result-item">
+
+                            <span>
+                                Usable Hosts
+                            </span>
+
+                            <strong id="resultUsable">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="result-item">
+
+                            <span>
+                                IP Class
+                            </span>
+
+                            <strong id="resultClass">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="result-item">
+
+                            <span>
+                                Address Type
+                            </span>
+
+                            <strong id="resultType">
+                                —
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================
+             Subnet Calculator
+        =================================== -->
+
+        <section
+    class="page"
+    id="subnet-calculator"
+>
+
+    <div class="page-heading">
+
+        <span class="eyebrow">
+            CALCULATOR
+        </span>
+
+        <h3>
+            Subnet Calculator
+        </h3>
+
+        <p>
+            Divide an IPv4 network into smaller
+            subnets and analyze every address range.
+        </p>
+
+    </div>
+
+
+    <!-- Calculator Layout -->
+
+    <div class="calculator-layout subnet-layout">
+
+
+        <!-- Input Card -->
+
+        <div class="calculator-card">
+
+            <div class="card-heading">
+
+                <div>
+
+                    <span class="card-label">
+                        INPUT
+                    </span>
+
+                    <h4>
+                        Subnet Details
+                    </h4>
+
+                </div>
+
+                <span class="protocol-badge">
+                    IPv4
+                </span>
+
+            </div>
+
+
+            <!-- Network -->
+
+            <div class="input-group">
+
+                <label for="subnetIP">
+                    Network / IP Address
+                </label>
+
+                <input
+                    type="text"
+                    id="subnetIP"
+                    placeholder="192.168.1.0"
+                    autocomplete="off"
+                >
+
+                <small>
+                    Example: 192.168.1.0
+                </small>
+
+            </div>
+
+
+            <!-- Original CIDR -->
+
+            <div class="input-group">
+
+                <label for="originalCIDR">
+                    Original CIDR
+                </label>
+
+                <div class="cidr-input">
+
+                    <span>/</span>
+
+                    <input
+                        type="number"
+                        id="originalCIDR"
+                        value="24"
+                        min="0"
+                        max="32"
+                    >
+
+                </div>
+
+                <small>
+                    Network prefix: /0 – /32
+                </small>
+
+            </div>
+
+
+            <!-- New CIDR -->
+
+            <div class="input-group">
+
+                <label for="newCIDR">
+                    New Subnet CIDR
+                </label>
+
+                <div class="cidr-input">
+
+                    <span>/</span>
+
+                    <input
+                        type="number"
+                        id="newCIDR"
+                        value="26"
+                        min="0"
+                        max="32"
+                    >
+
+                </div>
+
+                <small>
+                    Must be greater than or equal to original CIDR.
+                </small>
+
+            </div>
+
+
+            <!-- Error -->
+
+            <div
+                class="input-error"
+                id="subnetError"
+            ></div>
+
+
+            <!-- Actions -->
+
+            <div class="calculator-actions">
+
+                <button
+                    class="primary-button"
+                    id="calculateSubnet"
+                >
+                    Generate Subnets
+                    <span>→</span>
+                </button>
+
+                <button
+                    class="secondary-button"
+                    id="clearSubnet"
+                >
+                    Clear
+                </button>
+
+            </div>
+
+
+            <!-- Example -->
+
+            <div class="example-box">
+
+                <span>
+                    QUICK EXAMPLE
+                </span>
+
+                <button
+                    type="button"
+                    id="subnetExample"
+                >
+                    192.168.1.0/24 → /26
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Summary -->
+
+        <div class="results-card">
+
+            <div class="card-heading">
+
+                <div>
+
+                    <span class="card-label">
+                        SUMMARY
+                    </span>
+
+                    <h4>
+                        Subnet Information
+                    </h4>
+
+                </div>
+
+                <div class="result-badge">
+                    Ready
+                </div>
+
+            </div>
+
+
+            <div class="subnet-summary-grid">
+
+
+                <div class="result-item">
+
+                    <span>
+                        Original Network
+                    </span>
+
+                    <strong id="summaryNetwork">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="result-item">
+
+                    <span>
+                        Original CIDR
+                    </span>
+
+                    <strong id="summaryOriginalCIDR">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="result-item">
+
+                    <span>
+                        New CIDR
+                    </span>
+
+                    <strong id="summaryNewCIDR">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="result-item">
+
+                    <span>
+                        Subnet Mask
+                    </span>
+
+                    <strong id="summaryMask">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="result-item">
+
+                    <span>
+                        Number of Subnets
+                    </span>
+
+                    <strong id="summarySubnetCount">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="result-item">
+
+                    <span>
+                        Addresses / Subnet
+                    </span>
+
+                    <strong id="summaryAddresses">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="result-item">
+
+                    <span>
+                        Usable Hosts / Subnet
+                    </span>
+
+                    <strong id="summaryHosts">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="result-item">
+
+                    <span>
+                        Bits Borrowed
+                    </span>
+
+                    <strong id="summaryBorrowed">
+                        —
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Subnet Table -->
+
+    <div
+        class="subnet-table-card"
+        id="subnetTableCard"
+    >
+
+        <div class="card-heading">
+
+            <div>
+
+                <span class="card-label">
+                    SUBNET TABLE
+                </span>
+
+                <h4>
+                    Generated Subnets
+                </h4>
+
+            </div>
+
+            <span
+                class="subnet-count"
+                id="subnetCount"
+            >
+                0 Subnets
+            </span>
+
+        </div>
+
+
+        <div class="table-wrapper">
+
+            <table class="subnet-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            #
+                        </th>
+
+                        <th>
+                            Network
+                        </th>
+
+                        <th>
+                            CIDR
+                        </th>
+
+                        <th>
+                            First Host
+                        </th>
+
+                        <th>
+                            Last Host
+                        </th>
+
+                        <th>
+                            Broadcast
+                        </th>
+
+                        <th>
+                            Addresses
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody
+                    id="subnetTableBody"
+                >
+
+                    <tr>
+
+                        <td
+                            colspan="7"
+                            class="empty-table"
+                        >
+                            Enter network details
+                            and generate subnets.
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+        <!-- ==================================
+             Binary
+        =================================== -->
+
+    <section
+        class="page"
+        id="binary-calculator"
+    >
+
+    <div class="page-heading">
+
+        <span class="eyebrow">
+            CALCULATOR
+        </span>
+
+        <h3>
+            Binary Converter
+        </h3>
+
+        <p>
+            Convert IPv4 addresses between
+            decimal and binary notation.
+        </p>
+
+    </div>
+
+
+    <!-- Converter Layout -->
+
+    <div class="calculator-layout">
+
+
+        <!-- Input Card -->
+
+        <div class="calculator-card">
+
+            <div class="card-heading">
+
+                <div>
+
+                    <span class="card-label">
+                        INPUT
+                    </span>
+
+                    <h4>
+                        IPv4 Address
+                    </h4>
+
+                </div>
+
+                <span class="protocol-badge">
+                    IPv4
+                </span>
+
+            </div>
+
+
+            <!-- IPv4 Input -->
+
+            <div class="input-group">
+
+                <label for="binaryIPInput">
+                    IPv4 Address
+                </label>
+
+                <input
+                    type="text"
+                    id="binaryIPInput"
+                    placeholder="192.168.1.25"
+                    autocomplete="off"
+                >
+
+                <small>
+                    Enter a valid IPv4 address.
+                </small>
+
+            </div>
+
+
+            <!-- Error -->
+
+            <div
+                class="input-error"
+                id="binaryError"
+            ></div>
+
+
+            <!-- Actions -->
+
+            <div class="calculator-actions">
+
+                <button
+                    class="primary-button"
+                    id="convertBinary"
+                >
+                    Convert to Binary
+                    <span>→</span>
+                </button>
+
+                <button
+                    class="secondary-button"
+                    id="clearBinary"
+                >
+                    Clear
+                </button>
+
+            </div>
+
+
+            <!-- Quick Example -->
+
+            <div class="example-box">
+
+                <span>
+                    QUICK EXAMPLE
+                </span>
+
+                <button
+                    type="button"
+                    id="binaryExample"
+                >
+                    192.168.1.25
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Results -->
+
+        <div
+            class="results-card"
+            id="binaryResults"
+        >
+
+            <div class="card-heading">
+
+                <div>
+
+                    <span class="card-label">
+                        RESULTS
+                    </span>
+
+                    <h4>
+                        Binary Information
+                    </h4>
+
+                </div>
+
+                <div class="result-badge">
+                    Converted
+                </div>
+
+            </div>
+
+
+            <!-- Main Binary Result -->
+
+            <div class="result-highlight">
+
+                <div>
+
+                    <span>
+                        DECIMAL
+                    </span>
+
+                    <strong id="binaryDecimalResult">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="result-divider"></div>
+
+
+                <div>
+
+                    <span>
+                        BINARY
+                    </span>
+
+                    <strong
+                        id="binaryFullResult"
+                        class="binary-result"
+                    >
+                        —
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- Octet Breakdown -->
+
+            <div class="binary-section">
+
+                <div class="card-heading">
+
+                    <div>
+
+                        <span class="card-label">
+                            OCTET BREAKDOWN
+                        </span>
+
+                        <h4>
+                            8-Bit Conversion
+                        </h4>
+
+                    </div>
+
+                </div>
+
+
+                <div class="binary-octets">
+
+
+                    <div class="binary-octet">
+
+                        <span>
+                            OCTET 1
+                        </span>
+
+                        <strong id="binaryOctet1">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="binary-octet">
+
+                        <span>
+                            OCTET 2
+                        </span>
+
+                        <strong id="binaryOctet2">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="binary-octet">
+
+                        <span>
+                            OCTET 3
+                        </span>
+
+                        <strong id="binaryOctet3">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="binary-octet">
+
+                        <span>
+                            OCTET 4
+                        </span>
+
+                        <strong id="binaryOctet4">
+                            —
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- 32-bit Result -->
+
+            <div class="binary-section">
+
+                <div class="card-heading">
+
+                    <div>
+
+                        <span class="card-label">
+                            32-BIT REPRESENTATION
+                        </span>
+
+                        <h4>
+                            Complete Binary Address
+                        </h4>
+
+                    </div>
+
+                </div>
+
+
+                <div class="binary-32bit">
+
+                    <code id="binary32Result">
+                        —
+                    </code>
+
+                </div>
+
+            </div>
+
+
+            <!-- Conversion Explanation -->
+
+            <div class="binary-info">
+
+                <span class="card-label">
+                    HOW IT WORKS
+                </span>
+
+                <p>
+                    Each IPv4 address contains four
+                    decimal octets. Every octet is
+                    converted into an 8-bit binary
+                    value, producing a total of
+                    32 bits.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+        <!-- ==================================
+             Ports
+        =================================== -->
+
+
+<section
+    class="page"
+    id="port-reference"
+>
+
+    <div class="page-heading">
+
+        <span class="eyebrow">
+            NETWORK TOOL
+        </span>
+
+        <h3>
+            Port Reference
+        </h3>
+
+        <p>
+            Search commonly used TCP and UDP ports
+            and their associated network services.
+        </p>
+
+    </div>
+
+
+    <!-- Port Controls -->
+
+    <div class="port-controls">
+
+        <div class="port-search">
+
+            <label for="portSearch">
+                Search Ports
+            </label>
+
+            <div class="search-input-wrapper">
+
+                <span>
+                    🔎
+                </span>
+
+                <input
+                    type="text"
+                    id="portSearch"
+                    placeholder="Search port, service, or keyword..."
+                    autocomplete="off"
+                >
+
+            </div>
+
+        </div>
+
+
+        <div class="port-filter">
+
+            <label for="protocolFilter">
+                Protocol
+            </label>
+
+            <select id="protocolFilter">
+
+                <option value="all">
+                    All Protocols
+                </option>
+
+                <option value="TCP">
+                    TCP
+                </option>
+
+                <option value="UDP">
+                    UDP
+                </option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+
+    <!-- Port Table -->
+
+    <div class="subnet-table-card port-table-card">
+
+        <div class="card-heading">
+
+            <div>
+
+                <span class="card-label">
+                    DATABASE
+                </span>
+
+                <h4>
+                    Common Network Ports
+                </h4>
+
+            </div>
+
+
+            <span
+                class="subnet-count"
+                id="portResultCount"
+            >
+                Loading...
+            </span>
+
+        </div>
+
+
+        <div class="table-wrapper">
+
+            <table class="subnet-table port-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Port
+                        </th>
+
+                        <th>
+                            Protocol
+                        </th>
+
+                        <th>
+                            Service
+                        </th>
+
+                        <th>
+                            Description
+                        </th>
+
+                        <th>
+                            Action
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="portTableBody">
+
+                    <tr>
+
+                        <td
+                            colspan="5"
+                            class="empty-table"
+                        >
+                            Loading port database...
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+        <!-- ==================================
+             MAC Converter
+        =================================== -->
+
+        <section
+            class="page"
+            id="mac-converter"
+        >
+
+            <div class="page-heading">
+
+                <span class="eyebrow">
+                    NETWORK TOOL
+                </span>
+
+                <h3>
+                    MAC Converter
+                </h3>
+
+                <p>
+                    Work with MAC address formats.
+                </p>
+
+            </div>
+
+
+            <div class="placeholder-card">
+
+                <div class="placeholder-icon">
+                    🖧
+                </div>
+
+                <h3>
+                    Coming Soon
+                </h3>
+
+                <p>
+                    MAC address tools will be
+                    implemented later.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================
+             Practice
+        =================================== -->
+
+        <section
+            class="page"
+            id="practice"
+        >
+
+            <div class="page-heading">
+
+                <span class="eyebrow">
+                    LEARNING
+                </span>
+
+                <h3>
+                    Networking Practice
+                </h3>
+
+                <p>
+                    Test your networking knowledge.
+                </p>
+
+            </div>
+
+
+            <div class="placeholder-card">
+
+                <div class="placeholder-icon">
+                    🎯
+                </div>
+
+                <h3>
+                    Coming Soon
+                </h3>
+
+                <p>
+                    Interactive networking questions
+                    will be added later.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================
+             Learn
+        =================================== -->
+
+        <section
+            class="page"
+            id="learn"
+        >
+
+            <div class="page-heading">
+
+                <span class="eyebrow">
+                    LEARNING
+                </span>
+
+                <h3>
+                    Learn Networking
+                </h3>
+
+                <p>
+                    Understand networking concepts
+                    through simple explanations.
+                </p>
+
+            </div>
+
+
+            <div class="placeholder-card">
+
+                <div class="placeholder-icon">
+                    📚
+                </div>
+
+                <h3>
+                    Coming Soon
+                </h3>
+
+                <p>
+                    Networking lessons will be
+                    added in a future version.
+                </p>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+</div>
+
+
+<!-- ======================================
+     JavaScript
+======================================= -->
+
+<script src="js/script.js"></script>
+
+<script src="js/calculators/ipCalculator.js"></script>
+<script src="js/calculators/subSubnetXulator.js"></script>
+<script src="js/calculators/binaryCalculator.js"></script>
+
+<script src="js/tools/portReference.js"></script>
+</body>
+
+</html>
