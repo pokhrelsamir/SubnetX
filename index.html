@@ -2025,50 +2025,408 @@
 </section>
 
 
-        <!-- ==================================
-             MAC Converter
-        =================================== -->
+<!-- ==================================
+        MAC Converter
+=================================== -->
 
-        <section
-            class="page"
-            id="mac-converter"
-        >
+<section
+    class="page"
+    id="mac-converter"
+>
 
-            <div class="page-heading">
+    <div class="page-heading">
 
-                <span class="eyebrow">
-                    NETWORK TOOL
-                </span>
+        <span class="eyebrow">
+            NETWORK TOOL
+        </span>
 
-                <h3>
-                    MAC Converter
-                </h3>
+        <h3>
+            MAC Address Converter
+        </h3>
 
-                <p>
-                    Work with MAC address formats.
-                </p>
+        <p>
+            Convert MAC addresses between common
+            networking formats and analyze address properties.
+        </p>
 
-            </div>
+    </div>
 
 
-            <div class="placeholder-card">
+    <!-- ==================================
+         MAC Calculator Layout
+    =================================== -->
 
-                <div class="placeholder-icon">
-                    🖧
+    <div class="calculator-layout mac-layout">
+
+
+        <!-- Input Card -->
+
+        <div class="calculator-card">
+
+            <div class="card-heading">
+
+                <div>
+
+                    <span class="card-label">
+                        INPUT
+                    </span>
+
+                    <h4>
+                        MAC Address
+                    </h4>
+
                 </div>
 
-                <h3>
-                    Coming Soon
-                </h3>
-
-                <p>
-                    MAC address tools will be
-                    implemented later.
-                </p>
+                <span class="protocol-badge">
+                    MAC
+                </span>
 
             </div>
 
-        </section>
+
+            <!-- MAC Input -->
+
+            <div class="input-group">
+
+                <label for="macInput">
+                    MAC Address
+                </label>
+
+                <input
+                    type="text"
+                    id="macInput"
+                    placeholder="AA:BB:CC:DD:EE:FF"
+                    autocomplete="off"
+                    spellcheck="false"
+                >
+
+                <small>
+                    Supports colon, hyphen, Cisco and plain formats.
+                </small>
+
+            </div>
+
+
+            <!-- Error -->
+
+            <div
+                class="input-error"
+                id="macError"
+            ></div>
+
+
+            <!-- Actions -->
+
+            <div class="calculator-actions">
+
+                <button
+                    class="primary-button"
+                    id="convertMAC"
+                    type="button"
+                >
+                    Convert MAC
+                    <span>→</span>
+                </button>
+
+                <button
+                    class="secondary-button"
+                    id="clearMAC"
+                    type="button"
+                >
+                    Clear
+                </button>
+
+            </div>
+
+
+            <!-- Example -->
+
+            <div class="example-box">
+
+                <span>
+                    QUICK EXAMPLE
+                </span>
+
+                <button
+                    type="button"
+                    id="macExample"
+                >
+                    AA:BB:CC:DD:EE:FF
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Results Card -->
+
+        <div class="results-card mac-results-card">
+
+            <div class="card-heading">
+
+                <div>
+
+                    <span class="card-label">
+                        RESULTS
+                    </span>
+
+                    <h4>
+                        MAC Information
+                    </h4>
+
+                </div>
+
+                <div class="result-badge">
+                    Converted
+                </div>
+
+            </div>
+
+
+            <!-- MAC Formats -->
+
+            <div class="mac-format-list">
+
+
+                <!-- Colon -->
+
+                <div class="mac-format-item">
+
+                    <div>
+
+                        <span>
+                            COLON FORMAT
+                        </span>
+
+                        <strong id="resultMACColon">
+                            —
+                        </strong>
+
+                    </div>
+
+                    <button
+                        type="button"
+                        class="copy-mac"
+                        data-target="resultMACColon"
+                    >
+                        Copy
+                    </button>
+
+                </div>
+
+
+                <!-- Hyphen -->
+
+                <div class="mac-format-item">
+
+                    <div>
+
+                        <span>
+                            HYPHEN FORMAT
+                        </span>
+
+                        <strong id="resultMACHyphen">
+                            —
+                        </strong>
+
+                    </div>
+
+                    <button
+                        type="button"
+                        class="copy-mac"
+                        data-target="resultMACHyphen"
+                    >
+                        Copy
+                    </button>
+
+                </div>
+
+
+                <!-- Cisco -->
+
+                <div class="mac-format-item">
+
+                    <div>
+
+                        <span>
+                            CISCO FORMAT
+                        </span>
+
+                        <strong id="resultMACCisco">
+                            —
+                        </strong>
+
+                    </div>
+
+                    <button
+                        type="button"
+                        class="copy-mac"
+                        data-target="resultMACCisco"
+                    >
+                        Copy
+                    </button>
+
+                </div>
+
+
+                <!-- Plain -->
+
+                <div class="mac-format-item">
+
+                    <div>
+
+                        <span>
+                            PLAIN FORMAT
+                        </span>
+
+                        <strong id="resultMACPlain">
+                            —
+                        </strong>
+
+                    </div>
+
+                    <button
+                        type="button"
+                        class="copy-mac"
+                        data-target="resultMACPlain"
+                    >
+                        Copy
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- MAC Properties -->
+
+            <div class="mac-property-grid">
+
+                <div class="result-item">
+
+                    <span>
+                        MAC TYPE
+                    </span>
+
+                    <strong id="resultMACType">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="result-item">
+
+                    <span>
+                        ADMINISTRATION
+                    </span>
+
+                    <strong id="resultMACAdmin">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="result-item">
+
+                    <span>
+                        OUI
+                    </span>
+
+                    <strong id="resultMACOUI">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="result-item">
+
+                    <span>
+                        NIC PORTION
+                    </span>
+
+                    <strong id="resultMACNIC">
+                        —
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ==================================
+         Binary Representation
+    =================================== -->
+
+    <div class="mac-binary-card">
+
+        <div class="card-heading">
+
+            <div>
+
+                <span class="card-label">
+                    BINARY
+                </span>
+
+                <h4>
+                    48-Bit Representation
+                </h4>
+
+            </div>
+
+        </div>
+
+
+        <div class="mac-binary-output">
+
+            <code id="resultMACBinary">
+                —
+            </code>
+
+        </div>
+
+    </div>
+
+
+    <!-- ==================================
+         Information
+    =================================== -->
+
+    <div class="mac-info-card">
+
+        <div class="mac-info-icon">
+            🖧
+        </div>
+
+        <div>
+
+            <span class="card-label">
+                HOW IT WORKS
+            </span>
+
+            <h4>
+                Understanding MAC Addresses
+            </h4>
+
+            <p>
+                A MAC address is a 48-bit hardware identifier
+                assigned to a network interface. The first
+                24 bits identify the OUI, while the remaining
+                24 bits identify the network interface.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
 
 
         <!-- ==================================
