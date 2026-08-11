@@ -218,79 +218,32 @@ showPage("dashboard");
    Theme Toggle
 ========================================== */
 
-const themeButton = document.getElementById("themeButton");
+const themeButton =
+    document.getElementById("themeButton");
 
 
-// Apply saved theme when page loads
+function applyTheme(theme) {
 
-const savedTheme = localStorage.getItem("netcalc-theme");
-
-if (savedTheme === "light") {
-
-    document.documentElement.setAttribute(
-        "data-theme",
-        "light"
-    );
-
-    updateThemeButton("light");
-
-} else {
+    const selectedTheme =
+        theme === "light"
+            ? "light"
+            : "dark";
 
     document.documentElement.setAttribute(
         "data-theme",
-        "dark"
+        selectedTheme
     );
 
-    updateThemeButton("dark");
+    localStorage.setItem(
+        "SubnetX-theme",
+        selectedTheme
+    );
 
+    updateThemeButton(
+        selectedTheme
+    );
 }
 
-
-/* Toggle Theme */
-
-if (themeButton) {
-
-    themeButton.addEventListener("click", function () {
-
-        const currentTheme =
-            document.documentElement.getAttribute("data-theme");
-
-        if (currentTheme === "light") {
-
-            document.documentElement.setAttribute(
-                "data-theme",
-                "dark"
-            );
-
-            localStorage.setItem(
-                "netcalc-theme",
-                "dark"
-            );
-
-            updateThemeButton("dark");
-
-        } else {
-
-            document.documentElement.setAttribute(
-                "data-theme",
-                "light"
-            );
-
-            localStorage.setItem(
-                "netcalc-theme",
-                "light"
-            );
-
-            updateThemeButton("light");
-
-        }
-
-    });
-
-}
-
-
-/* Update Button Icon */
 
 function updateThemeButton(theme) {
 
@@ -298,34 +251,60 @@ function updateThemeButton(theme) {
         return;
     }
 
-    if (theme === "light") {
+    const isLight =
+        theme === "light";
 
-        themeButton.textContent = "☀️";
+    themeButton.textContent =
+        isLight ? "☀️" : "🌙";
 
-        themeButton.setAttribute(
-            "title",
-            "Switch to dark mode"
-        );
+    themeButton.setAttribute(
+        "title",
+        isLight
+            ? "Switch to dark mode"
+            : "Switch to light mode"
+    );
 
-        themeButton.setAttribute(
-            "aria-label",
-            "Switch to dark mode"
-        );
+    themeButton.setAttribute(
+        "aria-label",
+        isLight
+            ? "Switch to dark mode"
+            : "Switch to light mode"
+    );
+}
 
-    } else {
 
-        themeButton.textContent = "🌙";
+/* Restore saved theme */
 
-        themeButton.setAttribute(
-            "title",
-            "Switch to light mode"
-        );
+const savedTheme =
+    localStorage.getItem("SubnetX-theme");
 
-        themeButton.setAttribute(
-            "aria-label",
-            "Switch to light mode"
-        );
+applyTheme(
+    savedTheme === "light"
+        ? "light"
+        : "dark"
+);
 
-    }
+
+/* Toggle theme */
+
+if (themeButton) {
+
+    themeButton.addEventListener(
+        "click",
+        () => {
+
+            const currentTheme =
+                document.documentElement.getAttribute(
+                    "data-theme"
+                ) || "dark";
+
+            applyTheme(
+                currentTheme === "light"
+                    ? "dark"
+                    : "light"
+            );
+
+        }
+    );
 
 }

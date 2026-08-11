@@ -35,6 +35,8 @@
 
 [data-theme="light"] {
 
+    --background: #f1f5f9;
+
     --surface: #ffffff;
 
     --surface-light: #f8fafc;
@@ -947,4 +949,62 @@ body,
     color:
         var(--text-muted);
 
+}
+
+/* ==========================================
+   FINAL THEME SAFETY OVERRIDES
+========================================== */
+
+html,
+body {
+    background: var(--background);
+    color: var(--text);
+}
+
+.main-content {
+    background: var(--background);
+}
+
+[data-theme="light"] .hero {
+    background:
+        radial-gradient(
+            circle at 90% 50%,
+            rgba(99, 102, 241, 0.10),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 65% 0%,
+            rgba(56, 189, 248, 0.05),
+            transparent 30%
+        ),
+        var(--surface);
+}
+
+[data-theme="light"] .input-group input,
+[data-theme="light"] .search-input-wrapper,
+[data-theme="light"] .port-filter select,
+[data-theme="light"] .binary-octet,
+[data-theme="light"] .binary-32bit,
+[data-theme="light"] .binary-info {
+    background: var(--surface-light);
+    color: var(--text);
+}
+
+[data-theme="light"] .subnet-table th,
+[data-theme="light"] .port-table th {
+    background: var(--surface-light);
+}
+
+[data-theme="light"] .subnet-table td,
+[data-theme="light"] .port-table td {
+    background: var(--surface);
+}
+
+[data-theme="light"] .nav-item.active {
+    color: #4f46e5;
+}
+
+[data-theme="light"] .tool-card:hover,
+[data-theme="light"] .secondary-button:hover {
+    background: var(--surface-light);
 }

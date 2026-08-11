@@ -1,5 +1,5 @@
 /* ==========================================
-   NetCalc — Port Reference
+   SubnetX — Port Reference
 ========================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const resultCount = document.getElementById("portResultCount");
 
     if (!searchInput || !protocolFilter || !tableBody) {
-        console.error("NetCalc: Port Reference elements not found.");
+        console.error("SubnetX: Port Reference elements not found.");
         return;
     }
 

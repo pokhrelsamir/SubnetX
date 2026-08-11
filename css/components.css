@@ -715,7 +715,7 @@
     outline: none;
 
     background:
-        #080e1a;
+        var(--surface-light);
 
     color:
         var(--text);
@@ -1224,12 +1224,7 @@
         1px solid var(--border);
 
     background:
-        rgba(
-            255,
-            255,
-            255,
-            0.02
-        );
+        var(--surface-light);
 
     color:
         var(--text-muted);
@@ -1361,9 +1356,9 @@
 
 .binary-octet {
     padding: 18px;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--border);
     border-radius: 12px;
-    background: var(--card-bg);
+    background: var(--surface-light);
 }
 
 .binary-octet span {
@@ -1391,8 +1386,8 @@
 .binary-32bit {
     padding: 20px;
     border-radius: 12px;
-    border: 1px solid var(--border-color);
-    background: var(--card-bg);
+    border: 1px solid var(--border);
+    background: var(--surface-light);
     overflow-x: auto;
 }
 
@@ -1407,8 +1402,8 @@
     margin-top: 24px;
     padding: 18px;
     border-radius: 12px;
-    border: 1px solid var(--border-color);
-    background: var(--card-bg);
+    border: 1px solid var(--border);
+    background: var(--surface-light);
 }
 
 .binary-info p {
@@ -1688,12 +1683,7 @@
         1px solid var(--border);
 
     background:
-        rgba(
-            255,
-            255,
-            255,
-            0.02
-        );
+        var(--surface-light);
 
     color:
         var(--text-muted);
