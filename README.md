@@ -510,7 +510,7 @@ Try the fully deployed SubnetX application:
   <img src="https://img.shields.io/badge/%F0%9F%9A%80%20Open%20SubnetX-Live%20Demo-6366f1?style=for-the-badge" alt="Open SubnetX Live Demo">
 </a>
 
-<br><br>
+<br>
 
 [https://pokhrelsamir.github.io/SubnetX/](https://pokhrelsamir.github.io/SubnetX/)
 
