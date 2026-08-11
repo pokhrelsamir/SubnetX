@@ -1998,3 +1998,305 @@
         var(--text);
 
 }
+
+/* =========================================
+   MAC Converter
+========================================= */
+
+.mac-layout {
+    grid-template-columns: 340px 1fr;
+}
+
+
+/* =========================================
+   MAC Format List
+========================================= */
+
+.mac-format-list {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 9px;
+
+    margin-bottom: 15px;
+}
+
+
+.mac-format-item {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 12px;
+
+    padding: 13px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 9px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.01
+        );
+}
+
+
+.mac-format-item span {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color:
+        var(--text-muted);
+
+    font-size: 7px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+
+.mac-format-item strong {
+    display: block;
+
+    color:
+        var(--text);
+
+    font-family:
+        "SFMono-Regular",
+        Consolas,
+        monospace;
+
+    font-size: 11px;
+
+    letter-spacing: 0.2px;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================================
+   Copy Button
+========================================= */
+
+.copy-mac {
+    flex-shrink: 0;
+
+    padding:
+        6px 9px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 6px;
+
+    background:
+        transparent;
+
+    color:
+        var(--text-secondary);
+
+    font-size: 8px;
+
+    cursor: pointer;
+
+    transition:
+        background var(--transition),
+        color var(--transition),
+        border-color var(--transition),
+        transform var(--transition);
+}
+
+
+.copy-mac:hover {
+    background:
+        rgba(
+            99,
+            102,
+            241,
+            0.1
+        );
+
+    border-color:
+        rgba(
+            99,
+            102,
+            241,
+            0.3
+        );
+
+    color:
+        var(--primary-light);
+
+    transform:
+        translateY(-1px);
+}
+
+
+/* =========================================
+   MAC Properties
+========================================= */
+
+.mac-property-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 9px;
+}
+
+
+/* =========================================
+   MAC Binary
+========================================= */
+
+.mac-binary-card {
+    margin-top: 15px;
+
+    padding: 23px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        var(--radius-large);
+
+    background:
+        var(--surface);
+}
+
+
+.mac-binary-card .card-heading {
+    margin-bottom: 15px;
+}
+
+
+.mac-binary-output {
+    padding: 18px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 10px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.015
+        );
+
+    overflow-x: auto;
+}
+
+
+.mac-binary-output code {
+    display: block;
+
+    color:
+        var(--primary-light);
+
+    font-family:
+        "SFMono-Regular",
+        Consolas,
+        monospace;
+
+    font-size: 11px;
+
+    line-height: 1.7;
+
+    letter-spacing: 0.08em;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================
+   MAC Information
+========================================= */
+
+.mac-info-card {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 15px;
+
+    margin-top: 15px;
+
+    padding: 20px 23px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        var(--radius-large);
+
+    background:
+        var(--surface);
+}
+
+
+.mac-info-icon {
+    width: 42px;
+
+    height: 42px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 11px;
+
+    background:
+        rgba(
+            99,
+            102,
+            241,
+            0.1
+        );
+
+    font-size: 18px;
+}
+
+
+.mac-info-card h4 {
+    margin-top: 2px;
+
+    margin-bottom: 6px;
+
+    color:
+        var(--text);
+
+    font-size: 14px;
+
+    font-weight: 650;
+}
+
+
+.mac-info-card p {
+    max-width: 850px;
+
+    color:
+        var(--text-secondary);
+
+    font-size: 10px;
+
+    line-height: 1.7;
+}
