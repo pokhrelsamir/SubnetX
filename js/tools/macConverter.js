@@ -4,6 +4,10 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
+    /* =========================================
+       Input & Controls
+    ========================================= */
+
     const macInput = document.getElementById("macInput");
     const macError = document.getElementById("macError");
 
@@ -59,7 +63,6 @@ document.addEventListener("DOMContentLoaded", () => {
             .trim()
             .replace(/[:\-.]/g, "")
             .toUpperCase();
-
     }
 
 
@@ -70,7 +73,6 @@ document.addEventListener("DOMContentLoaded", () => {
     function isValidMAC(mac) {
 
         return /^[0-9A-F]{12}$/.test(mac);
-
     }
 
 
@@ -80,13 +82,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function formatMAC(mac) {
 
+        const pairs = mac.match(/.{2}/g);
+
         return {
 
             colon:
-                mac.match(/.{2}/g).join(":"),
+                pairs.join(":"),
 
             hyphen:
-                mac.match(/.{2}/g).join("-"),
+                pairs.join("-"),
 
             cisco:
                 mac
@@ -95,9 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             plain:
                 mac
-
         };
-
     }
 
 
@@ -108,11 +110,13 @@ document.addEventListener("DOMContentLoaded", () => {
     function getMACType(mac) {
 
         const firstByte =
-            parseInt(mac.substring(0, 2), 16);
+            parseInt(
+                mac.substring(0, 2),
+                16
+            );
 
         /*
-            Least significant bit of the
-            first byte determines unicast/multicast.
+            I/G Bit:
 
             0 = Unicast
             1 = Multicast
@@ -121,7 +125,6 @@ document.addEventListener("DOMContentLoaded", () => {
         return (firstByte & 1)
             ? "Multicast"
             : "Unicast";
-
     }
 
 
@@ -132,19 +135,21 @@ document.addEventListener("DOMContentLoaded", () => {
     function getAdministrationType(mac) {
 
         const firstByte =
-            parseInt(mac.substring(0, 2), 16);
+            parseInt(
+                mac.substring(0, 2),
+                16
+            );
 
         /*
-            Second least significant bit:
+            U/L Bit:
 
-            0 = Universally administered
-            1 = Locally administered
+            0 = Universally Administered
+            1 = Locally Administered
         */
 
         return (firstByte & 2)
             ? "Locally Administered"
             : "Universally Administered";
-
     }
 
 
@@ -156,13 +161,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
         return mac
             .match(/.{2}/g)
-            .map(byte =>
-                parseInt(byte, 16)
-                    .toString(2)
-                    .padStart(8, "0")
-            )
-            .join(" ");
+            .map(byte => {
 
+                return parseInt(
+                    byte,
+                    16
+                )
+                    .toString(2)
+                    .padStart(8, "0");
+
+            })
+            .join(" ");
     }
 
 
@@ -174,10 +183,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (!macError) return;
 
-        macError.textContent = message;
+        macError.textContent =
+            message;
 
         macError.classList.add("show");
-
     }
 
 
@@ -192,17 +201,18 @@ document.addEventListener("DOMContentLoaded", () => {
         macError.textContent = "";
 
         macError.classList.remove("show");
-
     }
 
 
     /* =========================================
-       Calculate MAC
+       Convert MAC
     ========================================= */
 
     function convertMAC() {
 
         clearError();
+
+        if (!macInput) return;
 
         const input =
             macInput.value;
@@ -211,7 +221,9 @@ document.addEventListener("DOMContentLoaded", () => {
             normalizeMAC(input);
 
 
-        /* Empty Input */
+        /* =====================================
+           Empty Input
+        ===================================== */
 
         if (!input.trim()) {
 
@@ -220,11 +232,12 @@ document.addEventListener("DOMContentLoaded", () => {
             );
 
             return;
-
         }
 
 
-        /* Invalid MAC */
+        /* =====================================
+           Invalid MAC
+        ===================================== */
 
         if (!isValidMAC(mac)) {
 
@@ -233,9 +246,12 @@ document.addEventListener("DOMContentLoaded", () => {
             );
 
             return;
-
         }
 
+
+        /* =====================================
+           Format MAC
+        ===================================== */
 
         const formatted =
             formatMAC(mac);
@@ -246,60 +262,73 @@ document.addEventListener("DOMContentLoaded", () => {
         ===================================== */
 
         if (resultColon) {
+
             resultColon.textContent =
                 formatted.colon;
         }
 
         if (resultHyphen) {
+
             resultHyphen.textContent =
                 formatted.hyphen;
         }
 
         if (resultCisco) {
+
             resultCisco.textContent =
                 formatted.cisco;
         }
 
         if (resultPlain) {
+
             resultPlain.textContent =
                 formatted.plain;
         }
 
 
         /* =====================================
-           Display Information
+           MAC Properties
         ===================================== */
 
         if (resultType) {
 
             resultType.textContent =
                 getMACType(mac);
-
         }
+
 
         if (resultAdmin) {
 
             resultAdmin.textContent =
                 getAdministrationType(mac);
-
         }
+
+
+        /* =====================================
+           OUI
+        ===================================== */
 
         if (resultOUI) {
 
             resultOUI.textContent =
-                mac.substring(0, 6)
+                mac
+                    .substring(0, 6)
                     .match(/.{2}/g)
                     .join(":");
-
         }
+
+
+        /* =====================================
+           NIC Portion
+        ===================================== */
 
         if (resultNIC) {
 
             resultNIC.textContent =
-                mac.substring(6)
+                mac
+                    .substring(6)
                     .match(/.{2}/g)
                     .join(":");
-
         }
 
 
@@ -311,9 +340,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
             resultBinary.textContent =
                 macToBinary(mac);
-
         }
 
+
+        /* =====================================
+           Normalize Input Display
+        ===================================== */
+
+        macInput.value =
+            formatted.colon;
     }
 
 
@@ -324,6 +359,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function clearMAC() {
 
         if (macInput) {
+
             macInput.value = "";
         }
 
@@ -349,12 +385,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (element) {
 
-                element.textContent = "—";
-
+                element.textContent =
+                    "—";
             }
-
         });
-
     }
 
 
@@ -370,41 +404,131 @@ document.addEventListener("DOMContentLoaded", () => {
             "AA:BB:CC:DD:EE:FF";
 
         convertMAC();
-
     }
 
 
     /* =========================================
-       Copy MAC
+       Clipboard Helper
     ========================================= */
 
-    async function copyValue(element) {
+    async function copyText(value) {
 
-        if (!element) return;
+        /*
+            Modern Clipboard API
+        */
 
-        const value =
-            element.textContent.trim();
+        if (
+            navigator.clipboard &&
+            window.isSecureContext
+        ) {
 
-        if (!value || value === "—") {
+            await navigator.clipboard.writeText(
+                value
+            );
+
             return;
         }
 
 
+        /*
+            Fallback for local environments
+        */
+
+        const textarea =
+            document.createElement("textarea");
+
+        textarea.value =
+            value;
+
+        textarea.style.position =
+            "fixed";
+
+        textarea.style.left =
+            "-9999px";
+
+        document.body.appendChild(
+            textarea
+        );
+
+        textarea.focus();
+
+        textarea.select();
+
+
+        const copied =
+            document.execCommand("copy");
+
+
+        textarea.remove();
+
+
+        if (!copied) {
+
+            throw new Error(
+                "Clipboard copy failed."
+            );
+        }
+    }
+
+
+    /* =========================================
+       Copy MAC Value
+    ========================================= */
+
+    async function copyValue(
+        element,
+        button
+    ) {
+
+        if (
+            !element ||
+            !button
+        ) {
+            return;
+        }
+
+
+        const value =
+            element.textContent.trim();
+
+
+        if (
+            !value ||
+            value === "—"
+        ) {
+            return;
+        }
+
+
+        const originalText =
+            button.textContent;
+
+
         try {
 
-            await navigator.clipboard.writeText(value);
+            await copyText(value);
 
-            const original =
-                element.textContent;
 
-            element.textContent = "Copied!";
+            button.textContent =
+                "Copied!";
+
+
+            button.classList.add(
+                "copied"
+            );
+
 
             setTimeout(() => {
 
-                element.textContent =
-                    original;
+                button.textContent =
+                    originalText;
+
+                button.classList.remove(
+                    "copied"
+                );
 
             }, 1000);
+
 
         } catch (error) {
 
@@ -413,8 +537,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 error
             );
 
-        }
 
+            button.textContent =
+                "Failed";
+
+
+            setTimeout(() => {
+
+                button.textContent =
+                    originalText;
+
+            }, 1000);
+        }
     }
 
 
@@ -422,7 +556,8 @@ document.addEventListener("DOMContentLoaded", () => {
        Copy Buttons
     ========================================= */
 
-    document.querySelectorAll(".copy-mac")
+    document
+        .querySelectorAll(".copy-mac")
         .forEach(button => {
 
             button.addEventListener(
@@ -432,21 +567,24 @@ document.addEventListener("DOMContentLoaded", () => {
                     const targetId =
                         button.dataset.target;
 
+
                     const target =
                         document.getElementById(
                             targetId
                         );
 
-                    copyValue(target);
 
+                    copyValue(
+                        target,
+                        button
+                    );
                 }
             );
-
         });
 
 
     /* =========================================
-       Event Listeners
+       Convert Button
     ========================================= */
 
     if (convertMACButton) {
@@ -455,9 +593,12 @@ document.addEventListener("DOMContentLoaded", () => {
             "click",
             convertMAC
         );
-
     }
 
+
+    /* =========================================
+       Clear Button
+    ========================================= */
 
     if (clearMACButton) {
 
@@ -465,9 +606,12 @@ document.addEventListener("DOMContentLoaded", () => {
             "click",
             clearMAC
         );
-
     }
 
+
+    /* =========================================
+       Example Button
+    ========================================= */
 
     if (macExample) {
 
@@ -475,7 +619,6 @@ document.addEventListener("DOMContentLoaded", () => {
             "click",
             loadExample
         );
-
     }
 
 
@@ -492,12 +635,28 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (event.key === "Enter") {
 
                     convertMAC();
-
                 }
-
             }
         );
+    }
 
+
+    /* =========================================
+       Clear Error While Typing
+    ========================================= */
+
+    if (macInput) {
+
+        macInput.addEventListener(
+            "input",
+            () => {
+
+                if (macError) {
+
+                    clearError();
+                }
+            }
+        );
     }
 
 });
